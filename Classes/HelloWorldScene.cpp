@@ -68,14 +68,15 @@
  
      initMusic();
  
-     auto tileMap = TMXTiledMap::create("tile2/map4.tmx");
+     tileMap = TMXTiledMap::create("tile2/map4.tmx");
      if (tileMap == nullptr) {
          problemLoading("'tile2/map4.tmx'");
          return false;
      }
      /*tileMap->setAnchorPoint(Vec2(0.5, 0.5));*/
      /*tileMap->setPosition(visibleSize / 2);*/
- 
+     tileMap->setPosition(Vec2(0, 0));
+     tileMap->setCameraMask((unsigned short)CameraFlag::DEFAULT);
      this->addChild(tileMap, 0);
      Size mapSize = tileMap->getContentSize();
  
@@ -86,7 +87,7 @@
      }
  
      // Tạo player
-     auto player = Sprite::create("zombom2.jpg");
+     player = Sprite::create("zombom2.jpg");
      // Ban đầu đặt player ở giữa màn hình
      player->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
  
@@ -98,6 +99,8 @@
      // Cho phép nhận va chạm từ mọi thứ
      playerBody->setContactTestBitmask(0xFFFFFFFF);
      player->setPhysicsBody(playerBody);
+     player->setCameraMask((unsigned short)CameraFlag::USER1);
+
      this->addChild(player, 1);
  
      // Tạo sensor nhỏ cho chân player với offset trực tiếp
@@ -189,111 +192,28 @@
  
      this->objectEvent(player);
  
-     // Schedule cập nhật game: điều chỉnh tileMap và player
-     this->schedule([this, tileMap, player, visibleSize](float dt) {
-         // Nếu player có object hỗ trợ (isOnGround == true), cho phép di chuyển trái, phải, nhảy
-         if (isOnGround)
-         {
-             // Nếu di chuyển trái/phải, player giữ nguyên x, tileMap di chuyển theo ngược lại
-             if (_isLeftPressed || _isRightPressed)
-             {
-                 Vec2 tilePos = tileMap->getPosition();
-                 float panSpeed = 200.0f;
-                 float panStep = panSpeed * dt;
-                 if (_isLeftPressed)
-                     tilePos.x += panStep;
-                 if (_isRightPressed)
-                     tilePos.x -= panStep;
-                 // Giới hạn tileMap nếu cần (bạn có thể dùng clampf)
-                 tileMap->setPosition(tilePos);
-                 // Giữ cho player nằm ở giữa màn hình theo trục x
-                 Vec2 playerPos = player->getPosition();
-                 playerPos.x = visibleSize.width / 2;
-                 player->setPosition(playerPos);
-             }
-             // Nếu nhảy, chỉ cập nhật vị trí của player
-             if (_isUpPressed)
-             {
-                 // Nếu đang đứng, thực hiện nhảy
-                 if (isOnGround)
-                 {
-                     // Đặt trạng thái để không nhảy liên tục
-                     isOnGround = false;
-                     // Thiết lập vận tốc nhảy (giá trị có thể điều chỉnh)
-                     player->getPhysicsBody()->setVelocity(Vec2(0, 400));
-                 }
-             }
-         }
-         else
-         {
-             // Nếu player không có object hỗ trợ, player sẽ rơi (với trọng lực)
-             // Trong hầu hết trường hợp, hệ thống physics tự cập nhật vận tốc rơi do trọng lực,
-             // nhưng bạn có thể theo dõi hoặc điều chỉnh thêm nếu cần.
-             // Ví dụ: nếu player rơi quá nhanh, có thể giới hạn vận tốc.
-             Vec2 vel = player->getPhysicsBody()->getVelocity();
-             float maxFallSpeed = -600.0f;
-             if (vel.y < maxFallSpeed)
-             {
-                 player->getPhysicsBody()->setVelocity(Vec2(vel.x, maxFallSpeed));
-             }
-         }
-     }, "update_game");
- 
- 
-     /*float scaleX = visibleSize.width / mapSize.width;
-     float scaleY = visibleSize.height / mapSize.height;
- 
-     tileMap->setScale(scaleX, scaleY);*/
- 
-     /////////////////////////////
-     // 2. add a menu item with "X" image, which is clicked to quit the program
-     //    you may modify it.
- 
-     // add a "close" icon to exit the progress. it's an autorelease object
-     /*auto closeItem = MenuItemImage::create(
-                                            "CloseNormal.png",
-                                            "CloseSelected.png",
-                                            CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
- 
-     if (closeItem == nullptr ||
-         closeItem->getContentSize().width <= 0 ||
-         closeItem->getContentSize().height <= 0)
-     {
-         problemLoading("'CloseNormal.png' and 'CloseSelected.png'");
-     }
-     else
-     {
-         float x = origin.x + visibleSize.width - closeItem->getContentSize().width/2;
-         float y = origin.y + closeItem->getContentSize().height/2;
-         closeItem->setPosition(Vec2(x,y));
-     }*/
- 
-     // create menu, it's an autorelease object
-     /*auto menu = Menu::create(closeItem, NULL);
-     menu->setPosition(Vec2::ZERO);
-     this->addChild(menu, 1);*/
- 
-     /////////////////////////////
-     // 3. add your codes below...
- 
-     // add a label shows "Hello World"
-     // create and initialize a label
- 
-     //auto label = Label::createWithTTF("Hello World, I'm C++", "fonts/Marker Felt.ttf", 24);
-     //if (label == nullptr)
-     //{
-     //    problemLoading("'fonts/Marker Felt.ttf'");
-     //}
-     //else
-     //{
-     //    // position the label on the center of the screen
-     //    label->setPosition(Vec2(origin.x + visibleSize.width/2,
-     //                            origin.y + visibleSize.height - label->getContentSize().height));
- 
-     //    // add the label as a child to this layer
-     //    this->addChild(label, 1);
-     //}
-     return true;
+     // Schedule cập nhật game: điều chỉnh player
+     this->schedule([this](float dt) {
+        Vec2 velocity = this->player->getPhysicsBody()->getVelocity();
+        if (_isLeftPressed)
+            velocity.x = -150;
+        else if (_isRightPressed)
+            velocity.x = 150;
+        else
+            velocity.x = 0;
+        // Nhảy
+        if (_isUpPressed && this->player->getPhysicsBody()->getVelocity().y == 0) {
+            velocity.y = 400;
+        }
+        this->player->getPhysicsBody()->setVelocity(velocity);
+   }, "player_input");
+    
+    _camera = Camera::createOrthographic(visibleSize.width, visibleSize.height, 1, 1000);
+    _camera->setCameraFlag(CameraFlag::USER1);
+    _camera->setPosition3D(Vec3(player->getPosition().x, player->getPosition().y, 500));
+    this->addChild(_camera);
+    this->schedule(CC_SCHEDULE_SELECTOR(HelloWorld::update));
+    return true;
  }
  
  void HelloWorld::initMusic()
@@ -380,7 +300,7 @@
          physicsBody->setCollisionBitmask(collisionBitmask);
          physicsBody->setContactTestBitmask(0x01);
          objectNode->setPhysicsBody(physicsBody);
-         this->addChild(objectNode);
+         tileMap->addChild(objectNode);
      }
  
      return objectGroup;
@@ -545,3 +465,15 @@
  
  }
  
+void HelloWorld::update(float dt)
+{
+    if (player && _camera)
+    {
+         Vec3 camPos = _camera->getPosition3D();
+         camPos.x = player->getPosition().x;
+         camPos.y = player->getPosition().y;
+         // Giữ camPos.z không đổi, ví dụ 500
+         _camera->setPosition3D(camPos);
+    }
+}
+

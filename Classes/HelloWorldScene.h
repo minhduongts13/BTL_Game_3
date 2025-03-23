@@ -25,7 +25,9 @@
  #ifndef __HELLOWORLD_SCENE_H__
  #define __HELLOWORLD_SCENE_H__
  
+ 
  #include "cocos2d.h"
+ USING_NS_CC;
  
  class HelloWorld : public cocos2d::Scene
  {
@@ -43,7 +45,7 @@
      
      // implement the "static create()" method manually
      CREATE_FUNC(HelloWorld);
- 
+    void update(float dt);
  private:
      bool _isLeftPressed;
      bool _isRightPressed;
@@ -56,6 +58,9 @@
     void setPhysicWorld(cocos2d::PhysicsWorld* m_world) {
         world = m_world;
     }
+    cocos2d::TMXTiledMap* tileMap;
+    Camera* _camera;
+    Sprite* player;
  };
  
  #endif // __HELLOWORLD_SCENE_H__
