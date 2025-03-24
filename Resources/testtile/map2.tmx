@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="1">
+ <tileset firstgid="1" source="back720.tsx"/>
+ <imagelayer id="2" name="Image Layer 1" offsetx="12" offsety="-88">
+  <image source="Forest of Illusion Files/Forest of Illusion Files/Layers/back720.png" width="423" height="720"/>
+ </imagelayer>
+</map>
