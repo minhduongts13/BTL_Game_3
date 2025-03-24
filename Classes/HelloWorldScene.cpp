@@ -9,7 +9,7 @@ Scene* HelloWorld::createScene()
 {
     auto scene = Scene::createWithPhysics();
     scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
-    scene->getPhysicsWorld()->setGravity(Vec2(0, -980));
+    scene->getPhysicsWorld()->setGravity(Vec2(0, 600));
 
     auto layer = HelloWorld::create();
     layer->setPhysicWorld(scene->getPhysicsWorld());
@@ -64,7 +64,7 @@ bool HelloWorld::init()
     playerBody->setCategoryBitmask(0x01);
     // Cho phép nhận va chạm từ mọi thứ
     playerBody->setContactTestBitmask(0xFFFFFFFF);
-    playerBody->setLinearDamping(1.0f);
+    playerBody->setLinearDamping(0.1f);
     player->setPhysicsBody(playerBody);
     player->getPhysicsBody()->setRotationEnable(false);
     this->addChild(player, 1);
@@ -182,7 +182,7 @@ void HelloWorld::initGameSchedule(TMXTiledMap* tileMap, Sprite* player, const Si
             {
                 isOnGround = false;
                 CCLOG("Raycast: isOnGround = false");
-                player->getPhysicsBody()->setVelocity(Vec2(0, 400));
+                player->getPhysicsBody()->setVelocity(Vec2(0, 1800));
             }
 
             // Điều chỉnh vị trí player về giữa màn hình theo chiều X
@@ -202,12 +202,12 @@ void HelloWorld::initGameSchedule(TMXTiledMap* tileMap, Sprite* player, const Si
         {
             CCLOG("Raycast: isOnGround = false");
             // Khi không có object dưới chân, áp dụng giới hạn tốc độ rơi
-            Vec2 vel = player->getPhysicsBody()->getVelocity();
+            /*Vec2 vel = player->getPhysicsBody()->getVelocity();
             float maxFallSpeed = -600.0f;
             if (vel.y < maxFallSpeed)
             {
                 player->getPhysicsBody()->setVelocity(Vec2(vel.x, maxFallSpeed));
-            }
+            }*/
         }
     }, "update_game");
 }
