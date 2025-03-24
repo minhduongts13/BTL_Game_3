@@ -37,7 +37,7 @@ bool MenuScene::init()
         this->addChild(background, 0);
     }
 
-    AudioEngine::play2d("haha/Greenpath.mp3", true, 0.5f);
+    //AudioEngine::play2d("haha/Greenpath.mp3", true, 0.5f);
 
     auto titleImage = Sprite::create("haha/menu_name.png");
     if (titleImage == nullptr)
