@@ -7,7 +7,7 @@
 #include "Chest.h"
 #include "Boss.h"
 
-class HelloWorld : public cocos2d::Scene
+class HelloWorld : public cocos2d::Layer
 {
 public:
     static cocos2d::Scene *createScene();
@@ -35,6 +35,7 @@ private:
     Player *player;
     Monster *monster1;
     Monster *monster2;
+    bool isOnGround;
     Chest *chest;
     Item *item;
     Boss *boss;

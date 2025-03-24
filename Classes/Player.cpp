@@ -222,7 +222,7 @@ void Player::jump() {
         isOnGround = false;
         jumpCount++;
         playJumpAnimation(lastDirection);
-        float jumpVelocity = 200.0f; // Điều chỉnh giá trị này cho phù hợp
+        float jumpVelocity = 300.0f; // Điều chỉnh giá trị này cho phù hợp
         Vec2 currentVelocity = this->getPhysicsBody()->getVelocity();
         currentVelocity.y = jumpVelocity;
         this->getPhysicsBody()->setVelocity(currentVelocity);
