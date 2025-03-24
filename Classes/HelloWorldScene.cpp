@@ -32,18 +32,6 @@ bool HelloWorld::init()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    // auto edgeBody = PhysicsBody::createEdgeBox(visibleSize, PHYSICSBODY_MATERIAL_DEFAULT, 3);
-    // auto edgeNode = Node::create();
-    // edgeNode->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
-    // edgeBody->setCollisionBitmask(10);
-    // edgeBody->setContactTestBitmask(true);
-    // edgeNode->setPhysicsBody(edgeBody);
-    // addChild(edgeNode);
-    //// Tạo player
-    // player = Player::createPlayer();
-    // player->setPosition(Vec2(200, 200));
-    // this->addChild(player);
-
     // Khởi tạo nhạc nền
     initMusic();
 
@@ -54,8 +42,8 @@ bool HelloWorld::init()
         problemLoading("'tile2/map4.tmx'");
         return false;
     }
-    tileMap->setPosition(Vec2(-200, 0));
-    tileMap->setCameraMask((unsigned short)CameraFlag::DEFAULT);
+    tileMap->setPosition(Vec2(-200, -1800));
+    
     this->addChild(tileMap, 0);
 
     // Tạo object group từ tile map (nếu có)
@@ -72,17 +60,7 @@ bool HelloWorld::init()
     player = Player::createPlayer();
     player->setPosition(Vec2(200, 200));
     this->addChild(player);
-    // Tạo camera với kích thước màn hình
-    camera = Camera::createOrthographic(visibleSize.width, visibleSize.height, 1, 1000);
-    camera->setPosition(player->getPosition());
-    this->addChild(camera);
 
-    // Thêm player vào gameLayer
-    //tileMap->addChild(player);
-
-    //// Khởi tạo Follow Action sau khi đã thêm player vào scene
-    //Rect worldRect = Rect(0, 0, tileMap->getMapSize().width, tileMap->getMapSize().height);
-    //auto followAction = Follow::create(player, worldRect);
     //tileMap->runAction(followAction);
     // Tạo monster
     /*monster1 = FlyingMonster::spawnMonster(Vec2(400, 200));
@@ -96,34 +74,12 @@ bool HelloWorld::init()
 
 
     initKeyboardListener();
-    //this->objectEvent(player, tileMap);
     initGameSchedule(tileMap, player, visibleSize);
-    //auto listener = EventListenerKeyboard::create();
-    //listener->onKeyPressed = [=](EventKeyboard::KeyCode keyCode, Event *event)
-    //{
-    //    player->onKeyPressed(keyCode);
-    //};
-    //listener->onKeyReleased = [=](EventKeyboard::KeyCode keyCode, Event *event)
-    //{
-    //    player->onKeyReleased(keyCode);
-    //};
-
-    //this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
-
+    
     // Thiết lập sự kiện va chạm
     auto contactListener = EventListenerPhysicsContact::create();
     contactListener->onContactBegin = CC_CALLBACK_1(HelloWorld::OnPhysicsContact, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
-
-    // objectEvent();
-
-    //// Thiết lập camera (nếu cần)
-    //_camera = Camera::createOrthographic(visibleSize.width, visibleSize.height, 1, 1000);
-    //_camera->setCameraFlag(CameraFlag::USER1);
-    //_camera->setPosition3D(Vec3(player->getPosition().x, player->getPosition().y, 500));
-    // this->addChild(_camera);
-
-    // this->scheduleUpdate();
 
     return true;
 }
@@ -149,6 +105,7 @@ TMXObjectGroup *HelloWorld::initObject(TMXTiledMap *tileMap)
         ValueMap object = obj.asValueMap();
 
         std::string collidable = object["collidable"].asString();
+        std::string spike = object["spike"].asString();
         std::string poison = object["poison"].asString();
         std::string hit = object["hit"].asString();
         std::string fly = object["fly"].asString();
@@ -166,24 +123,34 @@ TMXObjectGroup *HelloWorld::initObject(TMXTiledMap *tileMap)
         int categoryBitmask = 0x00;
         int collisionBitmask = 0x01;
 
+        enum Interact {
+            Dummy,
+            GROUND,
+            DIE,
+            DISAPPEAR,
+            PUSH,
+            CLIMB
+        };
         if (collidable == "true")
-            categoryBitmask |= 0x02;
+            categoryBitmask |= (1 << GROUND);
         if (fly == "true")
-            categoryBitmask |= 0x02;
+            categoryBitmask |= (1 << GROUND);
+        if (spike == "spike")
+            categoryBitmask |= (1 << DIE);
         if (dead == "true")
-            categoryBitmask |= 0x04;
+            categoryBitmask |= (1 << DIE);
         if (poison == "true")
-            categoryBitmask |= 0x04;
+            categoryBitmask |= (1 << DIE);
         if (hit == "true")
-            categoryBitmask |= 0x08;
+            categoryBitmask |= (1 << DISAPPEAR);
         if (open == "true")
-            categoryBitmask |= 0x08;
+            categoryBitmask |= (1 << DISAPPEAR);
         if (take == "true")
-            categoryBitmask |= 0x08;
+            categoryBitmask |= (1 << DISAPPEAR);
         if (push == "true")
-            categoryBitmask |= 0x10;
+            categoryBitmask |= (1 << PUSH);
         if (climb == "true")
-            categoryBitmask |= 0x20;
+            categoryBitmask |= (1 << CLIMB);
 
         auto objectNode = Node::create();
         objectNode->setPosition(Vec2(x + width / 2, y + height / 2));
@@ -208,6 +175,7 @@ bool HelloWorld::OnPhysicsContact(cocos2d::PhysicsContact &contact)
     int categoryA = bodyA->getCategoryBitmask();
     int categoryB = bodyB->getCategoryBitmask();
     CCLOG("A: %i, B: %i", categoryA, categoryB);
+    // Kiểm tra va chạm với monster và player (quái đánh người)
     if ((categoryA == 0x100 && categoryB == 0x01) || (categoryA == 0x01 && categoryB == 0x100) || (categoryA == 0x101 && categoryB == 0x01) || (categoryA == 0x01 && categoryB == 0x101))
     {
         CCLOG("Player đã va chạm với Monster!");
@@ -225,7 +193,7 @@ bool HelloWorld::OnPhysicsContact(cocos2d::PhysicsContact &contact)
         }
         return true;
     }
-
+    // Người đánh quái
     if ((categoryA == 0x100 && categoryB == 0x80) || (categoryA == 0x80 && categoryB == 0x100))
     {
         CCLOG("Player đã va chạm với Monster!");
@@ -405,11 +373,9 @@ void HelloWorld::initGameSchedule(TMXTiledMap* tileMap, Sprite* player, const Si
         this->getScene()->getPhysicsWorld()->rayCast(rayCastFunc, rightStart, rightEnd, (void*)2);
 
         // Nếu ít nhất một tia chạm đất, player đang đứng
-        //isOnGround = leftBorder || rightBorder;
-        isOnGround = true;
-        if (isOnGround)
-        {
-            CCLOG("Raycast: isOnGround = true");
+        isOnGround = leftBorder || rightBorder;
+        
+            CCLOG("Velocity horizontal = %f", player->getPhysicsBody()->getVelocity().y);
             // Nếu di chuyển trái/phải, chỉ cập nhật tileMap nếu không bị block
             if (_isLeftPressed && !_isLeftBlocked)
             {
@@ -426,18 +392,29 @@ void HelloWorld::initGameSchedule(TMXTiledMap* tileMap, Sprite* player, const Si
                 tileMap->setPosition(tilePos);
             }
 
-            // Phần xử lý nhảy: nếu nhấn phím SPACE khi đang đứng
-            if (_isUpPressed && isOnGround)
+            // Phần xử lý nhảy: nếu nhấn phím jump khi đang đứng
+            if (player->getPhysicsBody()->getVelocity().y > 5)
             {
-                //isOnGround = false;
-                CCLOG("Raycast: isOnGround = false");
-                /*Vec2 tilePos = tileMap->getPosition();
+                isOnGround = false;
+                Vec2 tilePos = tileMap->getPosition();
                 float panSpeed = 200.0f;
-                tilePos.y -= panSpeed * dt;
-                tileMap->setPosition(tilePos);*/
+                tilePos.y -= panSpeed*(player->getPhysicsBody()->getVelocity().y/panSpeed) * dt;
+                tileMap->setPosition(tilePos);
                 //player->getPhysicsBody()->setVelocity(Vec2(0, 200));
             }
+            else if (player->getPhysicsBody()->getVelocity().y < -5){
+                Vec2 tilePos = tileMap->getPosition();
+                float panSpeed = -200.0f;
+                tilePos.y -= panSpeed*(player->getPhysicsBody()->getVelocity().y/panSpeed) * dt;
+                tileMap->setPosition(tilePos);
+            }
+            else {
+                Vec2 playerPos = player->getPosition();
+                Vec2 tilePos = tileMap->getPosition();
 
+                // Giả sử bạn muốn player luôn nằm ở giữa màn hình theo chiều Y:
+                float desiredY = visibleSize.height / 2 - playerPos.y;
+            }
             // Điều chỉnh vị trí player về giữa màn hình theo chiều X
             Vec2 desiredPosition = Vec2(visibleSize.width / 2, player->getPositionY());
             Vec2 currentPos = player->getPosition();
@@ -450,66 +427,19 @@ void HelloWorld::initGameSchedule(TMXTiledMap* tileMap, Sprite* player, const Si
                 if (fabs(correctionX) > fabs(diffX)) correctionX = diffX;
                 player->setPositionX(currentPos.x + correctionX);
             }
-            //// Lấy kích thước màn hình
-            //Size visibleSize = Director::getInstance()->getVisibleSize();
-
-            //// Chuyển đổi vị trí của player sang hệ tọa độ thế giới (nếu player không thuộc gameLayer trực tiếp)
-            //Vec2 playerWorldPos = player->getParent()->convertToWorldSpace(player->getPosition());
-
-            //// Kiểm tra nếu player vượt qua 1/2 màn hình theo chiều y
-            //if (playerWorldPos.y > visibleSize.height / 2 && !flag) {
-            //    // Tính độ dịch chuyển: 1/4 chiều cao màn hình
-            //    float shiftY = visibleSize.height / 4;
-
-            //    // Giả sử gameLayer là node cha chứa tất cả các đối tượng cần di chuyển
-            //    Vec2 currentPos = tileMap->getPosition();
-            //    tileMap->setPosition(Vec2(currentPos.x, currentPos.y - shiftY));
-            //    playerWorldPos.y -= 180;
-            //    flag = true;
-            //}
-            //else if (playerWorldPos.y < visibleSize.height / 2 && flag) {
-            //    // Khi player quay xuống dưới ngưỡng, reset flag để cho phép dịch chuyển tiếp theo
-            //    flag = false;
-            //}
-            //CCLOG("playerWorldPos.y :%f, tileMap.y: %f, flag: %d", playerWorldPos.y, tileMap->getPositionY(), flag);
-
-        }
-        else
-        {
-            CCLOG("Raycast: isOnGround = false");
             // Khi không có object dưới chân, áp dụng giới hạn tốc độ rơi
             Vec2 vel = player->getPhysicsBody()->getVelocity();
             float maxFallSpeed = -600.0f;
             if (vel.y < maxFallSpeed)
             {
-                player->getPhysicsBody()->setVelocity(Vec2(vel.x, maxFallSpeed));
+                // player->getPhysicsBody()->setVelocity(Vec2(vel.x, maxFallSpeed));
             }
-        }
+        // }
         }, "update_game");
 }
 
 void HelloWorld::update(float delta)
 {
-    /*if (player && _camera)
-    {
-        Vec3 camPos = _camera->getPosition3D();
-        camPos.x = player->getPosition().x;
-        camPos.y = player->getPosition().y;
-        _camera->setPosition3D(camPos);
-    }*/
-    // Tính bán kính màn hình
-    auto visibleSize = Director::getInstance()->getVisibleSize();
-    float halfWidth = visibleSize.width / 2;
-    float halfHeight = visibleSize.height / 2;
-
-    // Lấy vị trí player làm tham chiếu
-    Vec2 targetPos = player->getPosition();
-
-    // Giới hạn vị trí theo biên của map
-    float clampedX = clampf(targetPos.x, halfWidth, tileMap->getMapSize().width - halfWidth);
-    float clampedY = clampf(targetPos.y, halfHeight, tileMap->getMapSize().height - halfHeight);
-
-    camera->setPosition(Vec2(clampedX, clampedY));
 
     if (!player->isDead)
         player->update(delta);
