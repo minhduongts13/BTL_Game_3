@@ -1,0 +1,348 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "map4.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "exportAsImage.drawObjectLabels": false,
+    "exportAsImage.drawTileGrid": false,
+    "exportAsImage.includeBackgroundColor": false,
+    "exportAsImage.useCurrentScale": false,
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
+        "0_ Background.tsx": {
+            "scaleInDock": 0.5,
+            "scaleInEditor": 1
+        },
+        "Mossy - BackgroundDecoration1024.tsx": {
+            "scaleInDock": 0.5,
+            "scaleInEditor": 1
+        },
+        "Mossy - BackgroundDecoration128.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Mossy - BackgroundDecoration256.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "Mossy - BackgroundDecoration512.tsx": {
+            "scaleInDock": 0.5,
+            "scaleInEditor": 1
+        },
+        "Mossy - Decorations&Hazards.tsx": {
+            "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "Mossy - FloatingPlatforms256.tsx": {
+            "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "Mossy - FloatingPlatforms512.tsx": {
+            "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "Mossy - Hanging Plants512.tsx": {
+            "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "Mossy - MossyHills.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "Mossy - TileSet.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "Mossy - TileSet256.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "Mossy_backGround.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "SlimeOrange_00000256.tsx": {
+            "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "all-props.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "back.tsx": {
+            "scaleInDock": 0.25,
+            "scaleInEditor": 1
+        },
+        "back720.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "back848.tsx": {
+            "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "backboss720.tsx": {
+            "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "map.tmx": {
+            "expandedObjectLayers": [
+                8
+            ],
+            "scale": 0.25,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 2778,
+                "y": 1926
+            }
+        },
+        "map.tmx#Background_0": {
+            "scaleInDock": 0.12
+        },
+        "map.tmx#Background_1": {
+            "scaleInDock": 0.12
+        },
+        "map.tmx#Grass_background_1": {
+            "scaleInDock": 0.12
+        },
+        "map.tmx#Grass_background_2": {
+            "scaleInDock": 0.12
+        },
+        "map.tmx#Salt": {
+            "scaleInDock": 0.12
+        },
+        "map.tmx#Tiles": {
+            "scaleInDock": 1
+        },
+        "map.tmx#brush": {
+            "scaleInDock": 0.12
+        },
+        "map.tmx#door": {
+            "scaleInDock": 0.12
+        },
+        "map.tmx#icons8-old-key-96": {
+            "scaleInDock": 0.12
+        },
+        "map.tmx#knight": {
+            "scaleInDock": 0.12
+        },
+        "map.tmx#river": {
+            "scaleInDock": 0.12
+        },
+        "map.tmx#rock": {
+            "scaleInDock": 0.12
+        },
+        "map.tmx#stair": {
+            "scaleInDock": 1
+        },
+        "map.tmx#statue": {
+            "scaleInDock": 1
+        },
+        "map.tmx#treasure": {
+            "scaleInDock": 1
+        },
+        "map.tsx": {
+            "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "map1.tmx": {
+            "scale": 0.125,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": -196,
+                "y": -112
+            }
+        },
+        "map2.tsx": {
+            "scaleInDock": 0.0625,
+            "scaleInEditor": 1
+        },
+        "map3.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "map4.tmx": {
+            "expandedObjectLayers": [
+                25
+            ],
+            "scale": 0.33,
+            "selectedLayer": 17,
+            "viewCenter": {
+                "x": 1501.5151515151515,
+                "y": 4098.484848484849
+            }
+        },
+        "map4.tsx": {
+            "scaleInDock": 0.0625,
+            "scaleInEditor": 1
+        },
+        "map5.tsx": {
+            "scaleInDock": 0.03125,
+            "scaleInEditor": 1
+        },
+        "middle.tsx": {
+            "scaleInDock": 0.25,
+            "scaleInEditor": 1
+        },
+        "middle720.tsx": {
+            "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "mountains848.tsx": {
+            "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "sky.tsx": {
+            "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "spike2.tsx": {
+            "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "spike2128.tsx": {
+            "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "spike21282.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "sprite_sheet.tsx": {
+            "scaleInDock": 0.75,
+            "scaleInEditor": 1
+        },
+        "sprite_sheet1024.tsx": {
+            "scaleInDock": 0.12,
+            "scaleInEditor": 1
+        },
+        "tiles1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiles2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tilesetboss.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "untitled.tmx": {
+            "expandedObjectLayers": [
+                14
+            ],
+            "scale": 0.5,
+            "selectedLayer": 10,
+            "viewCenter": {
+                "x": 1537,
+                "y": 511
+            }
+        },
+        "untitled.tmx#Background_0": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#Background_1": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#Grass_background_1": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#Grass_background_2": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#Salt": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#Tiles": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#brush": {
+            "scaleInDock": 0.5,
+            "scaleInEditor": 1
+        },
+        "untitled.tmx#door": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#icons8-old-key-96": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#knight": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#moon": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#river": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#rock": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#stair": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#statue": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#test_1": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#test_2": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#treasure": {
+            "scaleInDock": 1
+        },
+        "windrise-background-4k.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "windrise-background-4k1280.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources",
+    "last.externalTilesetPath": "D:/BTL/BTL_Game/btl3_game/tileproject",
+    "last.imagePath": "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject",
+    "map.fixedSize": false,
+    "map.height": 22,
+    "map.lastUsedExportFilter": "All Files (*)",
+    "map.lastUsedFormat": "tmx",
+    "map.width": 60,
+    "openFiles": [
+        "map4.tmx",
+        "map5.tsx"
+    ],
+    "project": "project2.tiled-project",
+    "property.type": "bool",
+    "recentFiles": [
+        "map5.tsx",
+        "map4.tmx",
+        "map.tmx",
+        "back720.tsx",
+        "map3.tsx",
+        "map4.tsx",
+        "0_ Background.tsx",
+        "untitled.tmx",
+        "all-props.tsx",
+        "mountains848.tsx",
+        "back848.tsx",
+        "tilesetboss.tsx"
+    ],
+    "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
+    "tileset.lastUsedFormat": "tsx"
+}

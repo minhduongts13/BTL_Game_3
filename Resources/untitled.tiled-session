@@ -1,0 +1,875 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map4.tmx",
+    "expandedProjectPaths": [
+        ".",
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources",
+        "D:/MINH/GAME"
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "Background_0.tsx": {
+            "scaleInDock": 0.25,
+            "scaleInEditor": 1
+        },
+        "Background_1.tsx": {
+            "scaleInDock": 0.125,
+            "scaleInEditor": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/Background_0.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/Background_1.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/Grass_background_1.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/Grass_background_2.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/Mossy - BackgroundDecoration256.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/Mossy - Decorations&Hazards.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/Mossy - FloatingPlatforms256.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/Mossy - FloatingPlatforms512.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/Mossy - Hanging Plants512.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/Mossy - MossyHills.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/Mossy - TileSet.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/Mossy - TileSet256.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/Mossy_backGround.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/Salt.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/SlimeOrange_00000256.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/Tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/all-props.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/back720.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/back848.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/backboss720.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/brush.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/door.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/icons8-old-key-96.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/knight.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map.tmx": {
+            "scale": 0.125,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 3376,
+                "y": 1204
+            }
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map.tmx#Background_0": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map.tmx#Background_1": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map.tmx#Grass_background_1": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map.tmx#Grass_background_2": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map.tmx#Salt": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map.tmx#Tiles": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map.tmx#brush": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map.tmx#door": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map.tmx#icons8-old-key-96": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map.tmx#knight": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map.tmx#river": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map.tmx#rock": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map.tmx#stair": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map.tmx#statue": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map.tmx#treasure": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map4.tmx": {
+            "scale": 1,
+            "selectedLayer": 17,
+            "viewCenter": {
+                "x": 356,
+                "y": 4632.5
+            }
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map4.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map5.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/middle720.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/moon.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/mountains848.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/river.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/rock.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/sky.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/spike2.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/spike2128.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/spike21282.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/sprite_sheet1024.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/stair.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/statue.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/test_1.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/test_2.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/tiles1.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/tiles2.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/tilesetboss.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/treasure.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx": {
+            "expandedObjectLayers": [
+                16
+            ],
+            "scale": 0.5,
+            "selectedLayer": 10,
+            "viewCenter": {
+                "x": 784,
+                "y": 665
+            }
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx#Background_0": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx#Background_1": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx#Grass_background_1": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx#Grass_background_2": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx#Salt": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx#Tiles": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx#brush": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx#door": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx#icons8-old-key-96": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx#knight": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx#moon": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx#river": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx#rock": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx#stair": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx#statue": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx#test_1": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx#test_2": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx#treasure": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/windrise-background-4k.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/windrise-background-4k1280.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/Mossy - BackgroundDecoration256.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/Mossy - Decorations&Hazards.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/Mossy - FloatingPlatforms256.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/Mossy - FloatingPlatforms512.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/Mossy - Hanging Plants512.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/Mossy - MossyHills.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/Mossy - TileSet.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/Mossy - TileSet256.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/Mossy_backGround.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/SlimeOrange_00000256.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/all-props.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/back720.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/back848.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/backboss720.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/map.tmx": {
+            "scale": 0.25,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 140,
+                "y": 610
+            }
+        },
+        "D:/MINH/GAME/map.tmx#Background_0": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/map.tmx#Background_1": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/map.tmx#Grass_background_1": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/map.tmx#Grass_background_2": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/map.tmx#Salt": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/map.tmx#Tiles": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/map.tmx#brush": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/map.tmx#door": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/map.tmx#icons8-old-key-96": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/map.tmx#knight": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/map.tmx#river": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/map.tmx#rock": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/map.tmx#stair": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/map.tmx#statue": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/map.tmx#treasure": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/map4.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 5072,
+                "y": 2015
+            }
+        },
+        "D:/MINH/GAME/map4.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/map5.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/middle720.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/moon.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/mountains848.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/sky.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/spike2.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/spike2128.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/spike21282.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/sprite_sheet1024.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/tiles1.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/tiles2.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/tilesetboss.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/untitled.tmx": {
+            "scale": 16.26875,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 15.981559738762964,
+                "y": 17.794852093737994
+            }
+        },
+        "D:/MINH/GAME/untitled.tmx#Background_0": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/untitled.tmx#Background_1": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/untitled.tmx#Grass_background_1": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/untitled.tmx#Grass_background_2": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/untitled.tmx#Salt": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/untitled.tmx#Tiles": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/untitled.tmx#brush": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/untitled.tmx#door": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/untitled.tmx#icons8-old-key-96": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/untitled.tmx#knight": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/untitled.tmx#moon": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/untitled.tmx#river": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/untitled.tmx#rock": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/untitled.tmx#stair": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/untitled.tmx#statue": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/untitled.tmx#test_1": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/untitled.tmx#test_2": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/untitled.tmx#treasure": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/windrise-background-4k.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/windrise-background-4k1280.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/GAME/z6431616816030_728b9905201b3d6ad5507e63e572f93b.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "D:/MINH/tileproject/0_ Background.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "D:/MINH/tileproject/Mossy - BackgroundDecoration256.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/Mossy - Decorations&Hazards.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/Mossy - FloatingPlatforms256.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/Mossy - FloatingPlatforms512.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/Mossy - Hanging Plants512.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/Mossy - MossyHills.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/Mossy - TileSet.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/Mossy - TileSet256.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/Mossy_backGround.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/SlimeOrange_00000256.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/all-props.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/back720.tsx": {
+            "scaleInDock": 0.25
+        },
+        "D:/MINH/tileproject/back848.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/backboss720.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "D:/MINH/tileproject/map.tmx": {
+            "scale": 0.33,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 5484.848484848484,
+                "y": 1707.5757575757575
+            }
+        },
+        "D:/MINH/tileproject/map.tmx#Background_0": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/map.tmx#Background_1": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/map.tmx#Grass_background_1": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/map.tmx#Grass_background_2": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/map.tmx#Salt": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/map.tmx#Tiles": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/map.tmx#brush": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/map.tmx#door": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/map.tmx#icons8-old-key-96": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/map.tmx#knight": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/map.tmx#river": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/map.tmx#rock": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/map.tmx#stair": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/map.tmx#statue": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/map.tmx#treasure": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/middle720.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/mountains848.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/sky.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/spike2.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/spike2128.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/spike21282.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/sprite_sheet1024.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/tiles1.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/tiles2.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/tilesetboss.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/untitled.tmx": {
+            "scale": 0.39181315104166664,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1536.4466414655424,
+                "y": 511.723507664188
+            }
+        },
+        "D:/MINH/tileproject/untitled.tmx#Background_0": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/untitled.tmx#Background_1": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/untitled.tmx#Grass_background_1": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/untitled.tmx#Grass_background_2": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/untitled.tmx#Salt": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/untitled.tmx#Tiles": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/untitled.tmx#brush": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/untitled.tmx#door": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/untitled.tmx#icons8-old-key-96": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/untitled.tmx#knight": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/untitled.tmx#moon": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/untitled.tmx#river": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/untitled.tmx#rock": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/untitled.tmx#stair": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/untitled.tmx#statue": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/untitled.tmx#test_1": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/untitled.tmx#test_2": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/untitled.tmx#treasure": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/windrise-background-4k.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/MINH/tileproject/windrise-background-4k1280.tsx": {
+            "scaleInDock": 1
+        },
+        "Grass_background_1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Grass_background_2.tsx": {
+            "scaleInDock": 0.5,
+            "scaleInEditor": 1
+        },
+        "Salt.tsx": {
+            "scaleInDock": 0.75,
+            "scaleInEditor": 1
+        },
+        "Screenshot_2025-03-20_234036-removebg-preview.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tiles.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "brush.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "chest_open_2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "door.tsx": {
+            "scaleInDock": 0.5,
+            "scaleInEditor": 1
+        },
+        "icons8-old-key-96.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "keys_1_3.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "keys_2_1.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "knight.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "lock.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "moon.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 0.25,
+            "scaleInEditor": 1
+        },
+        "river.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "rock.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "stair.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "statue.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "test_1.tsx": {
+            "scaleInDock": 0.33,
+            "scaleInEditor": 1
+        },
+        "test_2.tsx": {
+            "scaleInDock": 0.75,
+            "scaleInEditor": 1
+        },
+        "treasure.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "untitled.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 11,
+            "viewCenter": {
+                "x": 202,
+                "y": 417
+            }
+        },
+        "untitled.tmx#Background_0": {
+            "scaleInDock": 0.25
+        },
+        "untitled.tmx#Background_1": {
+            "scaleInDock": 0.125
+        },
+        "untitled.tmx#Grass_background_1": {
+            "scaleInDock": 0.33
+        },
+        "untitled.tmx#Grass_background_2": {
+            "scaleInDock": 0.33
+        },
+        "untitled.tmx#Salt": {
+            "scaleInDock": 0.75
+        },
+        "untitled.tmx#Tiles": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#brush": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#door": {
+            "scaleInDock": 0.33
+        },
+        "untitled.tmx#icons8-old-key-96": {
+            "scaleInDock": 0.75
+        },
+        "untitled.tmx#knight": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#moon": {
+            "scaleInDock": 0.33
+        },
+        "untitled.tmx#river": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#rock": {
+            "scaleInDock": 0.33
+        },
+        "untitled.tmx#stair": {
+            "scaleInDock": 0.5
+        },
+        "untitled.tmx#statue": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#test_1": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#test_2": {
+            "scaleInDock": 1
+        },
+        "untitled.tmx#treasure": {
+            "scaleInDock": 1
+        }
+    },
+    "last.externalTilesetPath": "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources",
+    "last.imagePath": "D:/MINH/GAME",
+    "map.fixedSize": false,
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map4.tmx"
+    ],
+    "project": "untitled.tiled-project",
+    "property.type": "bool",
+    "recentFiles": [
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map4.tmx",
+        "D:/MINH/GAME/map4.tmx",
+        "D:/MINH/tileproject/map.tmx",
+        "D:/MINH/GAME/untitled.tmx",
+        "D:/MINH/GAME/z6431616816030_728b9905201b3d6ad5507e63e572f93b.tsx",
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map.tmx",
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/untitled.tmx",
+        "D:/MINH/tileproject/untitled.tmx",
+        "D:/MINH/tileproject/backboss720.tsx",
+        "D:/MINH/tileproject/0_ Background.tsx",
+        "D:/MINH/GAME/map.tmx",
+        "untitled.tmx"
+    ],
+    "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
+    "tileset.lastUsedFormat": "tsx"
+}
