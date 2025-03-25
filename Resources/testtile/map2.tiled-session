@@ -1,0 +1,55 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "map3.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "back480x800.tsx": {
+            "scaleInDock": 0.5,
+            "scaleInEditor": 1
+        },
+        "back720.tsx": {
+            "scaleInDock": 0.5,
+            "scaleInEditor": 1
+        },
+        "map2.tmx": {
+            "scale": 0.25,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 986,
+                "y": 554
+            }
+        },
+        "map3.tmx": {
+            "scale": 0.6315340909090909,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 692.757534862798,
+                "y": 431.48897885739996
+            }
+        }
+    },
+    "last.imagePath": "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/testtile/Forest of Illusion Files/Forest of Illusion Files/Layers",
+    "map.fixedSize": true,
+    "map.height": 27,
+    "map.lastUsedFormat": "tmx",
+    "map.width": 44,
+    "openFiles": [
+        "back720.tsx",
+        "back480x800.tsx",
+        "map3.tmx"
+    ],
+    "project": "map2.tiled-project",
+    "recentFiles": [
+        "back720.tsx",
+        "back480x800.tsx",
+        "map3.tmx",
+        "map2.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx"
+}

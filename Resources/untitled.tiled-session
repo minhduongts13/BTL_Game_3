@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map4.tmx",
+    "activeFile": "map.tmx",
     "expandedProjectPaths": [
         ".",
         "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources",
@@ -145,11 +145,14 @@
             "scaleInDock": 1
         },
         "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map4.tmx": {
-            "scale": 1,
-            "selectedLayer": 17,
+            "expandedObjectLayers": [
+                25
+            ],
+            "scale": 0.75,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 356,
-                "y": 4632.5
+                "x": 7176,
+                "y": 2671.333333333333
             }
         },
         "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map4.tsx": {
@@ -703,6 +706,33 @@
             "scaleInDock": 0.5,
             "scaleInEditor": 1
         },
+        "Mossy - BackgroundDecoration256.tsx": {
+            "scaleInDock": 1
+        },
+        "Mossy - Decorations&Hazards.tsx": {
+            "scaleInDock": 1
+        },
+        "Mossy - FloatingPlatforms256.tsx": {
+            "scaleInDock": 1
+        },
+        "Mossy - FloatingPlatforms512.tsx": {
+            "scaleInDock": 1
+        },
+        "Mossy - Hanging Plants512.tsx": {
+            "scaleInDock": 1
+        },
+        "Mossy - MossyHills.tsx": {
+            "scaleInDock": 1
+        },
+        "Mossy - TileSet.tsx": {
+            "scaleInDock": 1
+        },
+        "Mossy - TileSet256.tsx": {
+            "scaleInDock": 1
+        },
+        "Mossy_backGround.tsx": {
+            "scaleInDock": 1
+        },
         "Salt.tsx": {
             "scaleInDock": 0.75,
             "scaleInEditor": 1
@@ -711,9 +741,24 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "SlimeOrange_00000256.tsx": {
+            "scaleInDock": 1
+        },
         "Tiles.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
+        },
+        "all-props.tsx": {
+            "scaleInDock": 1
+        },
+        "back720.tsx": {
+            "scaleInDock": 1
+        },
+        "back848.tsx": {
+            "scaleInDock": 1
+        },
+        "backboss720.tsx": {
+            "scaleInDock": 1
         },
         "brush.tsx": {
             "scaleInDock": 2,
@@ -750,10 +795,69 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "map.tmx": {
+            "scale": 0.125,
+            "selectedLayer": 19,
+            "viewCenter": {
+                "x": 7760,
+                "y": 2572
+            }
+        },
+        "map.tmx#Background_0": {
+            "scaleInDock": 0.33
+        },
+        "map.tmx#Background_1": {
+            "scaleInDock": 0.5
+        },
+        "map.tmx#Grass_background_1": {
+            "scaleInDock": 0.5
+        },
+        "map.tmx#Grass_background_2": {
+            "scaleInDock": 0.33
+        },
+        "map.tmx#Salt": {
+            "scaleInDock": 0.5
+        },
+        "map.tmx#Tiles": {
+            "scaleInDock": 0.75
+        },
+        "map.tmx#brush": {
+            "scaleInDock": 1
+        },
+        "map.tmx#door": {
+            "scaleInDock": 1
+        },
+        "map.tmx#icons8-old-key-96": {
+            "scaleInDock": 1
+        },
+        "map.tmx#knight": {
+            "scaleInDock": 0.33
+        },
+        "map.tmx#river": {
+            "scaleInDock": 1
+        },
+        "map.tmx#rock": {
+            "scaleInDock": 1
+        },
+        "map.tmx#stair": {
+            "scaleInDock": 0.5
+        },
+        "map.tmx#statue": {
+            "scaleInDock": 1
+        },
+        "map.tmx#treasure": {
+            "scaleInDock": 1
+        },
+        "middle720.tsx": {
+            "scaleInDock": 1
+        },
         "moon.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 0.25,
             "scaleInEditor": 1
+        },
+        "mountains848.tsx": {
+            "scaleInDock": 1
         },
         "river.tsx": {
             "scaleInDock": 1,
@@ -762,6 +866,21 @@
         "rock.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
+        },
+        "sky.tsx": {
+            "scaleInDock": 1
+        },
+        "spike2.tsx": {
+            "scaleInDock": 1
+        },
+        "spike2128.tsx": {
+            "scaleInDock": 1
+        },
+        "spike21282.tsx": {
+            "scaleInDock": 1
+        },
+        "sprite_sheet1024.tsx": {
+            "scaleInDock": 1
         },
         "stair.tsx": {
             "scaleInDock": 1,
@@ -778,6 +897,15 @@
         "test_2.tsx": {
             "scaleInDock": 0.75,
             "scaleInEditor": 1
+        },
+        "tiles1.tsx": {
+            "scaleInDock": 1
+        },
+        "tiles2.tsx": {
+            "scaleInDock": 1
+        },
+        "tilesetboss.tsx": {
+            "scaleInDock": 1
         },
         "treasure.tsx": {
             "dynamicWrapping": false,
@@ -845,6 +973,12 @@
         },
         "untitled.tmx#treasure": {
             "scaleInDock": 1
+        },
+        "windrise-background-4k.tsx": {
+            "scaleInDock": 1
+        },
+        "windrise-background-4k1280.tsx": {
+            "scaleInDock": 1
         }
     },
     "last.externalTilesetPath": "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources",
@@ -852,12 +986,14 @@
     "map.fixedSize": false,
     "map.lastUsedFormat": "tmx",
     "openFiles": [
-        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map4.tmx"
+        "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map4.tmx",
+        "map.tmx"
     ],
     "project": "untitled.tiled-project",
     "property.type": "bool",
     "recentFiles": [
         "D:/Game/btl/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/proj.win32/bin/BTL_Game_3/Debug/Resources/map4.tmx",
+        "map.tmx",
         "D:/MINH/GAME/map4.tmx",
         "D:/MINH/tileproject/map.tmx",
         "D:/MINH/GAME/untitled.tmx",
@@ -867,8 +1003,7 @@
         "D:/MINH/tileproject/untitled.tmx",
         "D:/MINH/tileproject/backboss720.tsx",
         "D:/MINH/tileproject/0_ Background.tsx",
-        "D:/MINH/GAME/map.tmx",
-        "untitled.tmx"
+        "D:/MINH/GAME/map.tmx"
     ],
     "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
     "tileset.lastUsedFormat": "tsx"

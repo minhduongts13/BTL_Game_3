@@ -26,23 +26,22 @@ bool MenuScene::init()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    auto background = Sprite::create("menu_background.png");
+    auto background = Sprite::create("haha/menu_background.png");
     if (background == nullptr)
     {
-        problemLoading("'HelloWorld.png'");
+        problemLoading("'haha/HelloWorld.png'");
     }
     else
     {
         background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
         this->addChild(background, 0);
     }
+    AudioEngine::play2d("haha/Greenpath.mp3", true, 0.5f);
 
-    AudioEngine::play2d("Greenpath.mp3", true, 0.5f);
-
-    auto titleImage = Sprite::create("menu_name.png");
+    auto titleImage = Sprite::create("haha/menu_name.png");
     if (titleImage == nullptr)
     {
-        problemLoading("'menu_name.png'");
+        problemLoading("'haha/menu_name.png'");
     }
     else
     {
@@ -51,10 +50,10 @@ bool MenuScene::init()
         this->addChild(titleImage, 1);
     }
 
-    auto iconImage = Sprite::create("menu_icon.png");
+    auto iconImage = Sprite::create("haha/menu_icon.png");
     if (iconImage == nullptr)
     {
-        problemLoading("'menu_icon.png'");
+        problemLoading("'haha/menu_icon.png'");
     }
     else
     {
@@ -63,8 +62,8 @@ bool MenuScene::init()
         this->addChild(iconImage, 1);
     }
 
-    auto iconLeft = Sprite::create("main_menu_pointer_left.png");
-    auto iconRight = Sprite::create("main_menu_pointer_right.png");
+    auto iconLeft = Sprite::create("haha/main_menu_pointer_left.png");
+    auto iconRight = Sprite::create("haha/main_menu_pointer_right.png");
     if (iconLeft && iconRight)
     {
         iconLeft->setScale(0.3f);
