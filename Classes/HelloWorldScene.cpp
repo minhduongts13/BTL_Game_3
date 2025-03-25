@@ -99,7 +99,7 @@ bool HelloWorld::init()
 void HelloWorld::initMusic()
 {
     AudioEngine::stopAll();
-    //AudioEngine::play2d("haha/Sealed Vessel.mp3", true, 0.5f);
+    AudioEngine::play2d("haha/Sealed Vessel.mp3", true, 0.5f);
 }
 // Hàm khởi tạo object từ tile map (từ code thứ hai)
 TMXObjectGroup *HelloWorld::initObject(TMXTiledMap *tileMap)

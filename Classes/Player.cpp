@@ -1,4 +1,5 @@
-﻿#include "Player.h"
+﻿#include "audio/include/AudioEngine.h"
+#include "Player.h"
 Player* Player::createPlayer() {
     Player* player = new Player();
     if (player && player->initWithFile("Knight/knight1-1.png")) {
@@ -25,6 +26,7 @@ void Player::onKeyPressed(EventKeyboard::KeyCode keyCode) {
 
     // Bắt phím tấn công "D"
     if (keyCode == EventKeyboard::KeyCode::KEY_D && !this->getActionByTag(TAG_JUMP_ANIMATION) && !isAttacking) {
+        AudioEngine::play2d("hero_evade.wav", false, 1.0f);
         if (movingDirection.x != 0 || movingDirection.y != 0) {
             this->stopActionByTag(TAG_MOVE_ANIMATION);
         }
@@ -34,7 +36,6 @@ void Player::onKeyPressed(EventKeyboard::KeyCode keyCode) {
     if (keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW && !this->getActionByTag(TAG_ATTACK_ANIMATION)) {
         jump();
     }
-
 }
 
 void Player::onKeyReleased(EventKeyboard::KeyCode keyCode) {
