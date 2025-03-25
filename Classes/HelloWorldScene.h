@@ -7,7 +7,7 @@
 #include "Chest.h"
 #include "Boss.h"
 
-class HelloWorld : public cocos2d::Scene
+class HelloWorld : public cocos2d::Layer
 {
 public:
     static cocos2d::Scene *createScene();
@@ -50,6 +50,7 @@ private:
     bool flag = false;
     Camera* camera = nullptr;
     TMXTiledMap* tileMap=nullptr;
+    bool isOnGround = false;
 };
 
 #endif // __HELLOWORLD_SCENE_H__
