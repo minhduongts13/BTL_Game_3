@@ -21,6 +21,25 @@ Chest* Chest::createChest(const Vec2& position) {
     return nullptr;
 }
 
+Chest* Chest::createSpecialChest(const Vec2& position) {
+    Chest* chest = new (std::nothrow) Chest();
+    if (chest && chest->initWithFile("Thinh/treasure.png")) { // Ảnh thùng đồ đóng
+        chest->autorelease();
+        chest->setPosition(position);
+
+        // Thiết lập physics body
+        auto body = PhysicsBody::createBox(chest->getContentSize(), PHYSICSBODY_MATERIAL_DEFAULT);
+        body->setDynamic(false);
+        body->setCategoryBitmask(0x30); // 6 là bitmask cho thùng đồ
+        body->setContactTestBitmask(0xFFFFFFFF);
+        chest->setPhysicsBody(body);
+        chest->setAnchorPoint(Vec2(0, 0));
+        return chest;
+    }
+    CC_SAFE_DELETE(chest);
+    return nullptr;
+}
+
 void Chest::openChest(std::string path) {
     if (!isOpened) {
         isOpened = true;

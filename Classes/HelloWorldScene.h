@@ -1,4 +1,4 @@
-﻿#ifndef __HELLOWORLD_SCENE_H__
+#ifndef __HELLOWORLD_SCENE_H__
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
@@ -6,8 +6,9 @@
 #include "Monster.h"
 #include "Chest.h"
 #include "Boss.h"
+#include "MenuScene.h"
 
-class HelloWorld : public cocos2d::Scene
+class HelloWorld : public cocos2d::Layer
 {
 public:
     static cocos2d::Scene *createScene();
@@ -22,7 +23,7 @@ public:
     void initMusic();
     cocos2d::TMXObjectGroup *initObject(cocos2d::TMXTiledMap *tileMap);
     void initKeyboardListener();
-    void initGameSchedule(TMXTiledMap* tileMap, Sprite* player, const Size& visibleSize);
+    void initGameSchedule(TMXTiledMap* tileMap, Player* player, const Size& visibleSize);
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 
@@ -35,6 +36,7 @@ private:
     Player *player;
     Monster *monster1;
     Monster *monster2;
+    bool isOnGround;
     Chest *chest;
     Item *item;
     Boss *boss;
@@ -50,6 +52,7 @@ private:
     bool flag = false;
     Camera* camera = nullptr;
     TMXTiledMap* tileMap=nullptr;
+   /* Node* pushContainer = nullptr;*/
 };
 
 #endif // __HELLOWORLD_SCENE_H__
