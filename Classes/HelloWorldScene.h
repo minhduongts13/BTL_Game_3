@@ -1,4 +1,4 @@
-﻿#ifndef __HELLOWORLD_SCENE_H__
+#ifndef __HELLOWORLD_SCENE_H__
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
@@ -35,6 +35,7 @@ private:
     Player *player;
     Monster *monster1;
     Monster *monster2;
+    bool isOnGround;
     Chest *chest;
     Item *item;
     Boss *boss;
