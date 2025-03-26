@@ -7,6 +7,8 @@
 #include "Chest.h"
 #include "Boss.h"
 #include "MenuScene.h"
+#include "Board.h"
+#include <cstdlib>
 
 class HelloWorld : public cocos2d::Layer
 {
@@ -24,8 +26,11 @@ public:
     cocos2d::TMXObjectGroup *initObject(cocos2d::TMXTiledMap *tileMap);
     void initKeyboardListener();
     void initGameSchedule(TMXTiledMap *tileMap, Player *player, const Size &visibleSize);
-    void initMap2(TMXTiledMap* tileMap);
-    bool initMap3(TMXTiledMap* tileMap);
+    void initMap2(TMXTiledMap *tileMap);
+    bool initMap3(TMXTiledMap *tileMap);
+    void initMap4(TMXTiledMap* tileMap);
+    void randomAttack(float dt);
+    void scheduleNextAttack();
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 
@@ -38,8 +43,8 @@ private:
     Player *player;
     Monster *monster1;
     // bool isOnGround;
-    std::vector<Chest*> chests;
-    Chest* treasure;
+    std::vector<Chest *> chests;
+    Chest *treasure;
     Boss *boss;
     std::vector<Monster *> monsters; // Khai báo biến monsters
     bool _isLeftPressed = false;
@@ -54,8 +59,12 @@ private:
     Camera *camera = nullptr;
     TMXTiledMap *tileMap = nullptr;
     bool isOnGround = false;
-    Label* goldLabel = nullptr;
-    Node* uiLayer = nullptr;
+    Label *goldLabel = nullptr;
+    Node *uiLayer = nullptr;
+    //Boss *boss;
+    Board *board;
+    Board *live;
+    bool BossAttack = false;
 };
 
 #endif // __HELLOWORLD_SCENE_H__
