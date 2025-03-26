@@ -163,12 +163,14 @@ bool HelloWorld::init()
 
     return true;
 }
+
 // Hàm xử lý nhạc nền (từ code thứ hai)
 void HelloWorld::initMusic()
 {
     AudioEngine::stopAll();
     AudioEngine::play2d("haha/Sealed Vessel.mp3", true, 0.5f);
 }
+
 // Hàm khởi tạo object từ tile map (từ code thứ hai)
 TMXObjectGroup *HelloWorld::initObject(TMXTiledMap *tileMap)
 {
@@ -562,7 +564,7 @@ void HelloWorld::update(float delta)
 {
     if (!player->isDead) {
         player->update(delta);
-        CCLOG("Mạng Player: %d", player->getHp());
+        /*CCLOG("Mạng Player: %d", player->getHp());*/
     }
     else {
         AudioEngine::stopAll();

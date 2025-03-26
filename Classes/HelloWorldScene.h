@@ -52,7 +52,6 @@ private:
     bool flag = false;
     Camera* camera = nullptr;
     TMXTiledMap* tileMap=nullptr;
-   /* Node* pushContainer = nullptr;*/
 };
 
 #endif // __HELLOWORLD_SCENE_H__
