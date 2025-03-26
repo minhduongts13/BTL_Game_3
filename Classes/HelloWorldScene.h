@@ -24,6 +24,8 @@ public:
     cocos2d::TMXObjectGroup *initObject(cocos2d::TMXTiledMap *tileMap);
     void initKeyboardListener();
     void initGameSchedule(TMXTiledMap *tileMap, Player *player, const Size &visibleSize);
+    void initMap2(TMXTiledMap* tileMap);
+    bool initMap3(TMXTiledMap* tileMap);
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 
@@ -35,12 +37,11 @@ private:
     }
     Player *player;
     Monster *monster1;
-    Monster *monster2;
     // bool isOnGround;
-    Chest *chest;
-    Item *item;
+    std::vector<Chest*> chests;
+    Chest* treasure;
     Boss *boss;
-    Vector<Monster *> monsters; // Khai báo biến monsters
+    std::vector<Monster *> monsters; // Khai báo biến monsters
     bool _isLeftPressed = false;
     bool _isRightPressed = false;
     bool _isUpPressed = false;
@@ -53,6 +54,8 @@ private:
     Camera *camera = nullptr;
     TMXTiledMap *tileMap = nullptr;
     bool isOnGround = false;
+    Label* goldLabel = nullptr;
+    Node* uiLayer = nullptr;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

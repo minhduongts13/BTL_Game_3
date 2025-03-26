@@ -2,6 +2,10 @@
 #define __CHEST_H__
 
 #include "cocos2d.h"
+enum class ItemType {
+    BUFF,
+    CURRENCY
+};
 
 class Chest : public cocos2d::Sprite {
 public:
@@ -26,6 +30,6 @@ public:
      * @param position Vị trí spawn item (trong hệ toạ độ của node cha nơi add item).
      * @return Con trỏ Item* đã được autorelease (dùng addChild(item) để thêm vào scene/layer).
      */
-    static Item* spawnItem(const cocos2d::Vec2& position);
+    static Item* spawnItem(const cocos2d::Vec2& position, ItemType type);
 };
 #endif // __CHEST_H__

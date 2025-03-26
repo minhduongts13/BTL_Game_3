@@ -111,14 +111,10 @@ void Player::updateAnimationPriority() {
 
 void Player::update(float delta) {
     if (isDead) return;
-    if (this->getPhysicsBody()) { // Kiểm tra nếu PhysicsBody còn tồn tại
-        //Vec2 currentVelocity = this->getPhysicsBody()->getVelocity();
-        //// Xử lý logic dựa trên vận tốc...
-        //currentVelocity.x = movingDirection.x * speed;
-        //this->getPhysicsBody()->setVelocity(currentVelocity);
+    if (movingDirection != Vec2::ZERO) {
+        Vec2 newPosition = this->getPosition() + movingDirection * speed * delta;
+        this->setPosition(newPosition);
     }
-    
-
     if (!isOnGround &&
         !this->getActionByTag(TAG_JUMP_ANIMATION) &&
         !this->getActionByTag(TAG_ATTACK_ANIMATION) &&
@@ -282,10 +278,15 @@ void Player::onGroundContact() {
     isOnGround = true;
     // Nếu đang chạy animation rơi, dừng nó ngay
     if (this->getActionByTag(TAG_FALL_ANIMATION)) {
-        CCLOG("Player đứng trên object cho phép đứng");
+        //CCLOG("Player đứng trên object cho phép đứng");
         this->stopActionByTag(TAG_FALL_ANIMATION); 
         std::string idleTexture = (lastDirection ? "Knightmove/knightmove1-1.png" : "Knightmove/knightmove1-2.png");
         this->setTexture(idleTexture);
+        if (movingDirection.x != 0) {
+            if (!this->getActionByTag(TAG_MOVE_ANIMATION)) {
+                playMoveAnimation(lastDirection);
+            }
+        }
     }
 }
 
@@ -330,7 +331,7 @@ void Player::increaseSpeed() {
     CCLOG("Player speed increased!");
     speed += 50.0f;
     // Reset sau 5 giây
-    this->scheduleOnce([this](float dt) { this->resetSpeed(); }, 5.0f, "reset_speed");
+    this->scheduleOnce([this](float dt) { this->resetSpeed(); }, 15.0f, "reset_speed");
 }
 
 void Player::resetSpeed() {

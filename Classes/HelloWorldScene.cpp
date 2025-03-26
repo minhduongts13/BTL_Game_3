@@ -27,12 +27,13 @@ bool HelloWorld::init()
     {
         return false;
     }
-
+    
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     // Khởi tạo nhạc nền
     initMusic();
+    
 
     // Tạo tile map từ file TMX
     tileMap = TMXTiledMap::create("tile2/map4.tmx");
@@ -41,7 +42,7 @@ bool HelloWorld::init()
         problemLoading("'tile2/map4.tmx'");
         return false;
     }
-    tileMap->setPosition(Vec2(-6000, -1800));
+    tileMap->setPosition(Vec2(-3000, -1500));
     tileMap->setCameraMask((unsigned short)CameraFlag::DEFAULT);
     this->addChild(tileMap, 0);
 
@@ -52,75 +53,9 @@ bool HelloWorld::init()
         problemLoading("objectGroup");
         return false;
     }
-
-    auto rock1 = Sprite::create("Thinh/rock.png"); // Tạo object từ hình ảnh
-    if (rock1 == nullptr)
-    {
-        problemLoading("'Thinh/rock.png'");
-        return false;
-    }
-    rock1->setPosition(Vec2(10000, 2800)); // Đặt vị trí ban đầu
-
-    // Tạo PhysicsBody với kích thước dựa trên object
-    auto body = PhysicsBody::createBox(rock1->getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.3f));
-    body->setDynamic(true);       // Cho phép di chuyển
-    body->setGravityEnable(true); // Nếu không muốn bị ảnh hưởng bởi trọng lực
-    body->setCategoryBitmask(0x10);
-    body->setCollisionBitmask(0x01 | 0x02 | 0x04); // Cài đặt va chạm
-    body->setContactTestBitmask(0x01);
-
-    rock1->setPhysicsBody(body); // Gán PhysicsBody vào object
-
-    tileMap->addChild(rock1, 12345); // Thêm vào scene
-
-    auto rock2 = Sprite::create("Thinh/rock.png"); // Tạo object từ hình ảnh
-    if (rock2 == nullptr)
-    {
-        problemLoading("'Thinh/rock.png'");
-        return false;
-    }
-    rock2->setPosition(Vec2(11300, 2800)); // Đặt vị trí ban đầu
-
-    // Tạo PhysicsBody với kích thước dựa trên object
-    body = PhysicsBody::createBox(rock2->getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.3f));
-    body->setDynamic(true);       // Cho phép di chuyển
-    body->setGravityEnable(true); // Nếu không muốn bị ảnh hưởng bởi trọng lực
-    body->setCategoryBitmask(0x10);
-    body->setCollisionBitmask(0x01 | 0x02 | 0x04); // Cài đặt va chạm
-    body->setContactTestBitmask(0x01);
-
-    rock2->setPhysicsBody(body); // Gán PhysicsBody vào object
-
-    tileMap->addChild(rock2, 12345); // Thêm vào scene
-
-    auto key = Sprite::create("Thinh/key.png"); // Tạo object từ hình ảnh
-    if (key == nullptr)
-    {
-        problemLoading("'Thinh/key.png'");
-        return false;
-    }
-    key->setPosition(Vec2(6100, 2800)); // Đặt vị trí ban đầu
-
-    // Tạo PhysicsBody với kích thước dựa trên object
-    body = PhysicsBody::createBox(key->getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.3f));
-    body->setDynamic(true);       // Cho phép di chuyển
-    body->setGravityEnable(true); // Nếu không muốn bị ảnh hưởng bởi trọng lực
-    body->setCategoryBitmask(0x08);
-    body->setCollisionBitmask(0x01 | 0x02); // Cài đặt va chạm
-    body->setContactTestBitmask(0x01);
-
-    key->setPhysicsBody(body); // Gán PhysicsBody vào object
-
-    tileMap->addChild(key, 12345); // Thêm vào scene
-
-    chest = Chest::createSpecialChest(Vec2(11700, 1800));
-    if (chest == nullptr)
-    {
-        problemLoading("'Thinh/treasure.png'");
-        return false;
-    }
-    tileMap->addChild(chest, 12345);
-
+    initMap2(tileMap);
+    if(!initMap3(tileMap)) return false;
+    
     // --- Kết thúc phần MAP ---
 
     // --- Phần nhân vật từ code đầu tiên ---
@@ -129,17 +64,15 @@ bool HelloWorld::init()
     player->setPosition(Vec2(200, 200));
     this->addChild(player);
 
-    // Tạo monster
-    /*monster1 = FlyingMonster::spawnMonster(Vec2(400, 200));
-    this->addChild(monster1);*/
+    uiLayer = Node::create();
+    this->addChild(uiLayer, 200); // UI luôn nằm trên top
+    // Tạo Label hiển thị gold
+    goldLabel = Label::createWithTTF("Gold: 0", "fonts/Marker Felt.ttf", 50);
+    goldLabel->setAnchorPoint(Vec2(0, 0)); // Căn phải trên
+    goldLabel->setPosition(visibleSize.width - 170, visibleSize.height - 60);
+    goldLabel->setTextColor(Color4B(255, 215, 0, 255)); // Màu vàng
+    uiLayer->addChild(goldLabel, 10);
 
-    monster2 = GroundMonster::spawnMonster(Vec2(1000, 0));
-    tileMap->addChild(monster2, 9999); // thay vì để nó làm con scene chính thì để làm con của tilemap.
-
-    chest = Chest::createChest(Vec2(300, 35));
-    tileMap->addChild(chest, 12345);
-
-    // Lưu ý: bạn có thể muốn trừ bớt kích thước màn hình nếu muốn camera dừng ở rìa map
 
     // Tạo Follow action
     auto followAction = Follow::create(player, Rect::ZERO);
@@ -161,7 +94,7 @@ bool HelloWorld::init()
 void HelloWorld::initMusic()
 {
     AudioEngine::stopAll();
-    AudioEngine::play2d("haha/Sealed Vessel.mp3", true, 0.5f);
+    // AudioEngine::play2d("haha/Sealed Vessel.mp3", true, 0.5f);
 }
 // Hàm khởi tạo object từ tile map (từ code thứ hai)
 TMXObjectGroup *HelloWorld::initObject(TMXTiledMap *tileMap)
@@ -222,11 +155,7 @@ TMXObjectGroup *HelloWorld::initObject(TMXTiledMap *tileMap)
             categoryBitmask |= 0x04;
         if (hit == "true")
             categoryBitmask |= 0x08;
-        /*if (push == "true") {
-            physicsBody->setDynamic(true);
-            categoryBitmask |= 0x10;
-            pushContainer->addChild(objectNode);
-        }
+        /*
         else {
             tileMap->addChild(objectNode);
         }*/
@@ -244,21 +173,12 @@ TMXObjectGroup *HelloWorld::initObject(TMXTiledMap *tileMap)
 
 bool HelloWorld::OnPhysicsContact(cocos2d::PhysicsContact &contact)
 {
-    // Lấy vị trí của player theo world space
-    Vec2 playerWorldPos = player->getPosition();
-
-    // Chuyển đổi sang hệ tọa độ của tileMap
-    Vec2 rockSpawnPos = tileMap->convertToNodeSpace(playerWorldPos);
-
-    CCLOG("positionX: % f, positionY : % f", rockSpawnPos.x, rockSpawnPos.y);
-
     auto bodyA = contact.getShapeA()->getBody();
     auto bodyB = contact.getShapeB()->getBody();
 
     // Lấy category bitmask của hai đối tượng
     int categoryA = bodyA->getCategoryBitmask();
     int categoryB = bodyB->getCategoryBitmask();
-    CCLOG("A: %i, B: %i", categoryA, categoryB);
     if ((categoryA == 0x100 && categoryB == 0x01) || (categoryA == 0x01 && categoryB == 0x100) || (categoryA == 0x101 && categoryB == 0x01) || (categoryA == 0x01 && categoryB == 0x101))
     {
         CCLOG("Player đã va chạm với Monster!");
@@ -273,60 +193,53 @@ bool HelloWorld::OnPhysicsContact(cocos2d::PhysicsContact &contact)
             {
                 player->takeDamage(((Monster *)bodyA->getNode())->damage);
             }
+            
+        }
+        return true;
+    }
+
+    if ((categoryA == 0x04 && categoryB == 0x01) || (categoryA == 0x01 && categoryB == 0x04))
+    {
+        CCLOG("Player đã dính bẫy!");
+        // Xử lý logic khi va chạm, ví dụ trừ máu player hoặc xóa monster
+        if (player)
+        {
+            int dame = 1;
+            player->takeDamage(dame);
             // Đặt lịch cập nhật vị trí sau 0.5 giây
-            // this->scheduleOnce([this](float dt) {
-            //    player->setPosition(Vec2(player->getPositionX()-400.0f, player->getPositionY()));
-            //    }, 0.5f, "update_player_position"); // reset vị trí
+            this->scheduleOnce([this](float dt) {
+                auto moveUp = MoveBy::create(0.3f, Vec2(0, 150)); // Di chuyển lên 100px trong 0.5 giây
+                player->runAction(moveUp);
+                }, 0.2f, "update_player_position");
+
         }
         return true;
     }
+    
 
-    if ((categoryA == 0x04 && categoryB == 0x01) || (categoryA == 0x01 && categoryB == 0x04))
-    {
-        CCLOG("Player đã dính bẫy!");
-        // Xử lý logic khi va chạm, ví dụ trừ máu player hoặc xóa monster
-        if (player)
-        {
-            int dame = 1;
-            player->takeDamage(dame);
-        }
-        return true;
-    }
-
-    if ((categoryA == 0x04 && categoryB == 0x01) || (categoryA == 0x01 && categoryB == 0x04))
-    {
-        CCLOG("Player đã dính bẫy!");
-        // Xử lý logic khi va chạm, ví dụ trừ máu player hoặc xóa monster
-        if (player)
-        {
-            int dame = 1;
-            player->takeDamage(dame);
-        }
-        return true;
-    }
-
-    if ((categoryA == 0x100 && categoryB == 0x80) || (categoryA == 0x80 && categoryB == 0x100))
+    if ((categoryA == 0x101 && categoryB == 0x80) || (categoryA == 0x80 && categoryB == 0x101) || (categoryA == 0x100 && categoryB == 0x80) || (categoryA == 0x80 && categoryB == 0x100))
     {
         CCLOG("Player đã va chạm với Monster!");
-        // Xử lý logic khi va chạm, ví dụ trừ máu player hoặc xóa monster
-        if (monster1)
-            monster1->takeDamage(player->damage);
-        return true;
-    }
+        // Xác định quái vật nào bị tấn công
+        Monster* attackedMonster = nullptr;
 
-    if ((categoryA == 0x101 && categoryB == 0x80) || (categoryA == 0x80 && categoryB == 0x101))
-    {
-        CCLOG("Player đã va chạm với Monster!");
-        // Xử lý logic khi va chạm, ví dụ trừ máu player hoặc xóa monster
-        if (monster2)
-            monster2->takeDamage(player->damage);
-        if (monster2 && monster2->isDead)
-        {
-            this->scheduleOnce([&](float dt)
-                               {
-                monster2 = GroundMonster::spawnMonster(Vec2(400, 0));
-                this->addChild(monster2); }, 1.5f, "check_groundmonster");
-            // muốn tạo mới phải thêm scheduleOnce này để đợi sau khi khung body bị xóa tránh lỗi
+        for (auto monster : monsters) {
+            if (monster->getPhysicsBody() == bodyA || monster->getPhysicsBody() == bodyB) {
+                attackedMonster = monster;
+                break;
+            }
+        }
+
+        if (attackedMonster) {
+            attackedMonster->takeDamage(player->damage);
+            if (attackedMonster->isDead) {
+                Vec2 tempPosition = attackedMonster->getPosition();
+                tileMap->scheduleOnce([tempPosition, this](float dt)
+                    {
+                        Item* currencyItem = Item::spawnItem(tempPosition, ItemType::CURRENCY);
+                        tileMap->addChild(currencyItem, 9999);
+                    }, 0.05f, "drop_item_from_monster");
+            }
         }
         return true;
     }
@@ -371,11 +284,11 @@ bool HelloWorld::OnPhysicsContact(cocos2d::PhysicsContact &contact)
 
     if ((categoryA == 0x30 && categoryB == 0x01) || (categoryA == 0x01 && categoryB == 0x30))
     { // Player va vào Chest
-        CCLOG("Player đã mở rương!");
+        CCLOG("Player đã mở rương! %i", player->getKey());
 
-        if (chest && player->getKey())
+        if (treasure && player->getKey())
         {
-            chest->openChest("Thinh/chest.png"); // Mở chest (đổi ảnh, spawn vật phẩm bên trong, ...)
+            treasure->openChest("Thinh/chest.png"); // Mở chest (đổi ảnh, spawn vật phẩm bên trong, ...)
             player->setHp(player->getHp() + 3);
         }
         return true;
@@ -384,27 +297,26 @@ bool HelloWorld::OnPhysicsContact(cocos2d::PhysicsContact &contact)
     if ((categoryA == 0x102 && categoryB == 0x80) || (categoryA == 0x80 && categoryB == 0x102))
     { // Player va vào Chest
         CCLOG("Player đã đập thùng!");
-        // Chest* chest = nullptr;
-        if (categoryA == 0x102)
-            chest = (Chest *)bodyA->getNode();
-        else if (categoryB == 0x102)
-            chest = (Chest *)bodyB->getNode();
+        Chest* openedChest = nullptr;
+        for (auto chest : chests) {
+            if (chest->getPhysicsBody() == bodyA || chest->getPhysicsBody() == bodyB) {
+                openedChest = chest;
+                break;
+            }
+        }
 
-        if (chest)
-        {
-            chest->openChest("Object/Chest/chest_opened.png"); // Mở chest (đổi ảnh, spawn vật phẩm bên trong, ...)
-            Vec2 tempPosition = chest->getPosition();
+        if (openedChest) {
+            openedChest->openChest("Object/Chest/chest_opened.png"); // Mở chest (đổi ảnh, spawn vật phẩm bên trong, ...)
+            Vec2 tempPosition = openedChest->getPosition();
             // Nếu cần tạo chest mới sau 1.5 giây
-            this->scheduleOnce([tempPosition, this](float dt)
-                               {
+            tileMap->scheduleOnce([tempPosition, this](float dt)
+            {
                 // Spawn item ngay tại vị trí chest
-                item = Item::spawnItem(tempPosition);
-                this->addChild(item); }, 0.05f, "spawn_item");
-
-            this->scheduleOnce([this](float dt)
-                               {
-                chest = Chest::createChest(Vec2(300, 35));
-                this->addChild(chest); }, 1.5f, "spawn_chest");
+                Item* buffItem = Item::spawnItem(tempPosition, ItemType::BUFF);
+                Item* currencyItem = Item::spawnItem(tempPosition, ItemType::CURRENCY);
+                tileMap->addChild(buffItem, 9999);
+                tileMap->addChild(currencyItem, 9999);
+            }, 0.05f, "spawn_item");
         }
         return true;
     }
@@ -424,13 +336,27 @@ bool HelloWorld::OnPhysicsContact(cocos2d::PhysicsContact &contact)
             else if (itemName == "health")
             {
                 CCLOG("Player got health!");
-                player->heal(20);
+                player->heal(1);
             }
-            else if (itemName == "gold")
-            {
-                CCLOG("Player got gold!");
-                player->addGold(10);
+            else if (itemName == "gold") {
+                int goldAmount = cocos2d::RandomHelper::random_int(5, 20); // Random từ 5 đến 20
+
+                CCLOG("Player got %d gold!", goldAmount);
+                player->addGold(goldAmount);
+                auto goldLabel = Label::createWithTTF("+" + std::to_string(goldAmount), "fonts/Marker Felt.ttf", 40);
+                goldLabel->setPosition(player->getPosition() + Vec2(0, 50));
+                goldLabel->setTextColor(Color4B(255, 215, 0, 255)); // Vàng
+                auto scaleUp = ScaleTo::create(0.3f, 1.5f);
+                auto fadeOut = FadeOut::create(0.5f);
+                auto moveUp = MoveBy::create(0.5f, Vec2(0, 50));
+                auto remove = CallFunc::create([goldLabel]() { goldLabel->removeFromParent(); });
+                auto spawn = Spawn::create(scaleUp, moveUp, fadeOut, nullptr);
+                auto sequence = Sequence::create(spawn, remove, nullptr);
+                goldLabel->runAction(sequence);
+                player->getParent()->addChild(goldLabel, 10);
             }
+
+
             item->runAction(Sequence::create(FadeOut::create(0.01f), RemoveSelf::create(), nullptr));
         }
         return true;
@@ -500,9 +426,9 @@ void HelloWorld::initGameSchedule(TMXTiledMap *tileMap, Player *player, const Si
         if (!player->isDead) {
             if (isOnGround)
             {
-                CCLOG("Raycast: isOnGround = true");
+                //CCLOG("Raycast: isOnGround = true");
                 // Nếu di chuyển trái/phải, chỉ cập nhật tileMap nếu không bị block
-                if (_isLeftPressed && !_isLeftBlocked)
+                /*if (_isLeftPressed && !_isLeftBlocked)
                 {
                     Vec2 tilePos = tileMap->getPosition();
                     float panSpeed = 200.0f;
@@ -515,39 +441,39 @@ void HelloWorld::initGameSchedule(TMXTiledMap *tileMap, Player *player, const Si
                     float panSpeed = 200.0f;
                     tilePos.x -= panSpeed * dt;
                     tileMap->setPosition(tilePos);
-                }
+                }*/
 
                 // Phần xử lý nhảy: nếu nhấn phím SPACE khi đang đứng
                 if (_isUpPressed)
                 {
                     isOnGround = false;
-                    CCLOG("Raycast: isOnGround = false");
+                    //CCLOG("Raycast: isOnGround = false");
                 }
 
-                // Điều chỉnh vị trí player về giữa màn hình theo chiều X
-                Vec2 desiredPosition = Vec2(visibleSize.width / 2, player->getPositionY());
-                Vec2 currentPos = player->getPosition();
-                float diffX = desiredPosition.x - currentPos.x;
-                float threshold = 5.0f;
+                //// Điều chỉnh vị trí player về giữa màn hình theo chiều X
+                //Vec2 desiredPosition = Vec2(visibleSize.width / 2, player->getPositionY());
+                //Vec2 currentPos = player->getPosition();
+                //float diffX = desiredPosition.x - currentPos.x;
+                //float threshold = 5.0f;
 
-                if (fabs(diffX) > threshold) {
-                    float correctionSpeed = 50.0f;
-                    float correctionX = correctionSpeed * dt * (diffX > 0 ? 1 : -1);
-                    if (fabs(correctionX) > fabs(diffX)) correctionX = diffX;
-                    player->setPositionX(currentPos.x + correctionX);
-                }
-                if (fabs(diffX) > threshold) {
-                    float correctionSpeed = 50.0f;
-                    float correctionX = correctionSpeed * dt * (diffX > 0 ? 1 : -1);
-                    if (fabs(correctionX) > fabs(diffX)) correctionX = diffX;
-                    player->setPositionX(currentPos.x + correctionX);
-                }
+                //if (fabs(diffX) > threshold) {
+                //    float correctionSpeed = 50.0f;
+                //    float correctionX = correctionSpeed * dt * (diffX > 0 ? 1 : -1);
+                //    if (fabs(correctionX) > fabs(diffX)) correctionX = diffX;
+                //    player->setPositionX(currentPos.x + correctionX);
+                //}
+                //if (fabs(diffX) > threshold) {
+                //    float correctionSpeed = 50.0f;
+                //    float correctionX = correctionSpeed * dt * (diffX > 0 ? 1 : -1);
+                //    if (fabs(correctionX) > fabs(diffX)) correctionX = diffX;
+                //    player->setPositionX(currentPos.x + correctionX);
+                //}
 
             }
             else
             {
-                CCLOG("Raycast: isOnGround = false");
-                if (_isLeftPressed && !_isLeftBlocked)
+                //CCLOG("Raycast: isOnGround = false");
+                /*if (_isLeftPressed && !_isLeftBlocked)
                 {
                     Vec2 tilePos = tileMap->getPosition();
                     float panSpeed = 200.0f;
@@ -560,18 +486,151 @@ void HelloWorld::initGameSchedule(TMXTiledMap *tileMap, Player *player, const Si
                     float panSpeed = 200.0f;
                     tilePos.x -= panSpeed * dt;
                     tileMap->setPosition(tilePos);
-                }
+                }*/
             }
         } }, "update_game");
 }
+
+
+void HelloWorld::initMap2(TMXTiledMap* tileMap) {
+    // Tạo monster
+    for (int i = 0; i < 5; i++) {
+        Vec2 spawnPos = Vec2(1200 + i * 1000, 1500);
+        Monster* newMonster = FlyingMonster::spawnMonster(spawnPos);
+        tileMap->addChild(newMonster, 9999);
+        monsters.push_back(newMonster);
+    }
+    for (int i = 0; i < 5; i++) {
+        Vec2 spawnPos = Vec2(1000 + i * 1000, 500);
+        Monster* newMonster = FlyingMonster::spawnMonster(spawnPos);
+        tileMap->addChild(newMonster, 9999);
+        monsters.push_back(newMonster);
+    }
+    for (int i = 0; i < 5; i++) {
+        Vec2 spawnPos = Vec2(1000 + i * 1000, 30);
+        Monster* newMonster = GroundMonster::spawnMonster(spawnPos);
+        tileMap->addChild(newMonster, 9999);
+        monsters.push_back(newMonster);
+    }
+    std::vector<Vec2> spawnPositions = {
+        Vec2(5755, 193),
+        Vec2(4600, 1280)
+    };
+
+    for (const auto& pos : spawnPositions) {
+        Chest* chest = Chest::createChest(pos);
+        tileMap->addChild(chest, 9999);
+        chests.push_back(chest);
+    }    
 }
+
+
+
+
+bool HelloWorld::initMap3(TMXTiledMap* tileMap) {
+    auto rock1 = Sprite::create("Thinh/rock.png"); // Tạo object từ hình ảnh
+    if (rock1 == nullptr)
+    {
+        problemLoading("'Thinh/rock.png'");
+        return false;
+    }
+    rock1->setPosition(Vec2(10000, 2800)); // Đặt vị trí ban đầu
+
+    // Tạo PhysicsBody với kích thước dựa trên object
+    auto body = PhysicsBody::createBox(rock1->getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.3f));
+    body->setDynamic(true);       // Cho phép di chuyển
+    body->setGravityEnable(true); // Nếu không muốn bị ảnh hưởng bởi trọng lực
+    body->setCategoryBitmask(0x10);
+    body->setCollisionBitmask(0x01 | 0x02 | 0x04); // Cài đặt va chạm
+    body->setContactTestBitmask(0x01);
+
+    rock1->setPhysicsBody(body); // Gán PhysicsBody vào object
+
+    tileMap->addChild(rock1, 12345); // Thêm vào scene
+
+    auto rock2 = Sprite::create("Thinh/rock.png"); // Tạo object từ hình ảnh
+    if (rock2 == nullptr)
+    {
+        problemLoading("'Thinh/rock.png'");
+        return false;
+    }
+    rock2->setPosition(Vec2(11300, 2800)); // Đặt vị trí ban đầu
+
+    // Tạo PhysicsBody với kích thước dựa trên object
+    body = PhysicsBody::createBox(rock2->getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.3f));
+    body->setDynamic(true);       // Cho phép di chuyển
+    body->setGravityEnable(true); // Nếu không muốn bị ảnh hưởng bởi trọng lực
+    body->setCategoryBitmask(0x10);
+    body->setCollisionBitmask(0x01 | 0x02 | 0x04); // Cài đặt va chạm
+    body->setContactTestBitmask(0x01);
+
+    rock2->setPhysicsBody(body); // Gán PhysicsBody vào object
+
+    tileMap->addChild(rock2, 12345); // Thêm vào scene
+
+    auto key = Sprite::create("Thinh/key.png"); // Tạo object từ hình ảnh
+    if (key == nullptr)
+    {
+        problemLoading("'Thinh/key.png'");
+        return false;
+    }
+    key->setPosition(Vec2(6100, 2800)); // Đặt vị trí ban đầu
+
+    // Tạo PhysicsBody với kích thước dựa trên object
+    body = PhysicsBody::createBox(key->getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.3f));
+    body->setDynamic(true);       // Cho phép di chuyển
+    body->setGravityEnable(true); // Nếu không muốn bị ảnh hưởng bởi trọng lực
+    body->setCategoryBitmask(0x08);
+    body->setCollisionBitmask(0x01 | 0x02); // Cài đặt va chạm
+    body->setContactTestBitmask(0x01);
+
+    key->setPhysicsBody(body); // Gán PhysicsBody vào object
+
+    tileMap->addChild(key, 12345); // Thêm vào scene
+
+    treasure = Chest::createSpecialChest(Vec2(11700, 1800));
+    if (treasure == nullptr)
+    {
+        problemLoading("'Thinh/treasure.png'");
+        return false;
+    }
+    tileMap->addChild(treasure, 12345);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void HelloWorld::update(float delta)
 {
     if (!player->isDead)
     {
         player->update(delta);
-        CCLOG("Mạng Player: %d", player->getHp());
+        /*CCLOG("Player đã mở rương! %i", player->getKey());
+        CCLOG("Mạng Player: %d", player->getHp());*/
+        uiLayer->setPosition(this->getPosition() * -1);
+        std::string goldText = "Gold: " + std::to_string(player->gold);
+        goldLabel->setString(goldText);  
+        Vec2 playerPosInTileMap = tileMap->convertToNodeSpace(player->getPosition());
+        CCLOG("Vị trí nhân vật trên tileMap: x = %f, y = %f", playerPosInTileMap.x, playerPosInTileMap.y);
     }
     else
     {
@@ -583,11 +642,5 @@ void HelloWorld::update(float delta)
 
 void HelloWorld::menuCloseCallback(Ref *pSender)
 {
-    // Close the cocos2d-x game scene and quit the application
     Director::getInstance()->end();
-
-    /*To navigate back to native iOS screen(if present) without quitting the application  ,do not use Director::getInstance()->end() as given above,instead trigger a custom event created in RootViewController.mm as below*/
-
-    // EventCustom customEndEvent("game_scene_close_event");
-    //_eventDispatcher->dispatchEvent(&customEndEvent);
 }

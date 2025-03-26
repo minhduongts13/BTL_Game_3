@@ -53,19 +53,38 @@ void Chest::openChest(std::string path) {
     }
 }
 
-Item* Item::spawnItem(const Vec2& position)
+Item* Item::spawnItem(const Vec2& position, ItemType type)
 {
-    // Danh sách texture và tên item tương ứng
-    std::vector<std::pair<std::string, std::string>> itemData = {
-        {"Object/shoe.png",  "speed_boost"},
-        {"Object/heart.png", "health"},
-        {"Object/gold.png",  "gold"}
+    // Danh sách các loại item
+    std::vector<std::pair<std::string, std::string>> buffItems = {
+        {"Object/shoe.png", "speed_boost"},
+        {"Object/heart.png", "health"}
     };
 
-    // Chọn ngẫu nhiên
-    int randomIndex = rand() % itemData.size();
-    std::string texturePath = itemData[randomIndex].first;
-    std::string itemName = itemData[randomIndex].second;
+    std::vector<std::pair<std::string, std::string>> currencyItems = {
+        {"Object/gold.png", "gold"},
+        {"Object/XP.png", "xp"}
+    };
+
+    // Chọn danh sách theo loại item
+    std::vector<std::pair<std::string, std::string>>* itemList = nullptr;
+    if (type == ItemType::BUFF) {
+        itemList = &buffItems;
+    }
+    else if (type == ItemType::CURRENCY) {
+        itemList = &currencyItems;
+    }
+
+    // Kiểm tra danh sách có hợp lệ không
+    if (!itemList || itemList->empty()) {
+        CCLOG("Không có item phù hợp!");
+        return nullptr;
+    }
+
+    // Chọn ngẫu nhiên 1 item từ danh sách đã chọn
+    int randomIndex = rand() % itemList->size();
+    std::string texturePath = (*itemList)[randomIndex].first;
+    std::string itemName = (*itemList)[randomIndex].second;
 
     // Tạo sprite Item
     auto item = new (std::nothrow) Item();
@@ -75,19 +94,20 @@ Item* Item::spawnItem(const Vec2& position)
         item->setName(itemName);
         item->setAnchorPoint(Vec2(0, 0));
         item->setPosition(position);
-        auto itemBody = PhysicsBody::createBox(item->getContentSize());
-        itemBody->setDynamic(true);              // Để item chịu tác động vật lý (gravity, velocity)
-        itemBody->setGravityEnable(true);        // Bật trọng lực
-        itemBody->setCategoryBitmask(0x103);        // Tự quy ước bitmask cho item
-        itemBody->setContactTestBitmask(0xFFFFFFFF);   // Cho phép gọi callback khi va chạm
 
-        // Gắn physics body cho sprite
+        auto itemBody = PhysicsBody::createBox(item->getContentSize());
+        itemBody->setDynamic(true);
+        itemBody->setGravityEnable(true);
+        itemBody->setCategoryBitmask(0x103);
+        itemBody->setContactTestBitmask(0xFFFFFFFF);
+
+        // Gắn physics body
         item->setPhysicsBody(itemBody);
 
-        // (Tuỳ ý) Đặt vận tốc ban đầu cho item để nó "bay" ra
+        // Đặt vận tốc bay ra ngẫu nhiên
         itemBody->setVelocity(Vec2(rand() % 100 - 50, 200));
 
-        return item; // Trả về item đã autorelease
+        return item;
     }
 
     CC_SAFE_DELETE(item);

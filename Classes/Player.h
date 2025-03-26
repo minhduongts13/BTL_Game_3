@@ -52,8 +52,8 @@ private:
     Vec2 movingDirection;
     std::map<EventKeyboard::KeyCode, bool> keyStates;
     bool isAttacking = false;             // Trạng thái tấn công
-    float speed = 300.0f;   // Tốc độ di chuyển cơ bản, có thể điều chỉnh
-    float baseSpeed = 300.0f; // Lưu lại tốc độ ban đầu
+    float speed = 100.0f;   // Tốc độ di chuyển cơ bản, có thể điều chỉnh
+    float baseSpeed = 100.0f; // Lưu lại tốc độ ban đầu
     int hp = 4; // Máu ban đầu
     int maxHp = 4;
     bool key = false;
