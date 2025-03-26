@@ -29,15 +29,14 @@ bool MenuScene::init()
     auto background = Sprite::create("haha/menu_background.png");
     if (background == nullptr)
     {
-        problemLoading("'haha/HelloWorld.png'haha/");
+        problemLoading("'haha/HelloWorld.png'");
     }
     else
     {
         background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
         this->addChild(background, 0);
     }
-
-    //AudioEngine::play2d("haha/Greenpath.mp3", true, 0.5f);
+    AudioEngine::play2d("haha/Greenpath.mp3", true, 0.5f);
 
     auto titleImage = Sprite::create("haha/menu_name.png");
     if (titleImage == nullptr)

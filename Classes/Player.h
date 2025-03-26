@@ -43,6 +43,10 @@ public:
     int gold = 0;
     void setlastDirection(bool value) { lastDirection = value; }
     bool getlastDirection() { return lastDirection; }
+    void setKey(bool value) { key = value; }
+    bool getKey() { return key; }
+    void setHp(int value) { hp = value; }
+    int getHp() { return hp; }
 private:
     bool lastDirection = true;  // true: phải, false: trái
     Vec2 movingDirection;
@@ -50,8 +54,9 @@ private:
     bool isAttacking = false;             // Trạng thái tấn công
     float speed = 300.0f;   // Tốc độ di chuyển cơ bản, có thể điều chỉnh
     float baseSpeed = 300.0f; // Lưu lại tốc độ ban đầu
-    int hp = 100; // Máu ban đầu
-    int maxHp=100;
+    int hp = 4; // Máu ban đầu
+    int maxHp = 4;
+    bool key = false;
 };
 
 #endif // __PLAYER_H__

@@ -20,6 +20,158 @@
             "scaleInDock": 0.5,
             "scaleInEditor": 1
         },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/Mossy - BackgroundDecoration256.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/Mossy - Decorations&Hazards.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/Mossy - FloatingPlatforms256.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/Mossy - FloatingPlatforms512.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/Mossy - Hanging Plants512.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/Mossy - MossyHills.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/Mossy - TileSet.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/Mossy - TileSet256.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/Mossy_backGround.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/SlimeOrange_00000256.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/abc.tsx": {
+            "scaleInDock": 0.125
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/all-props.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/back720.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/back848.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/backboss720.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/map4.tmx": {
+            "scale": 0.25,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 8226,
+                "y": 2818
+            }
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/map4.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/map5.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/mapthinh.tmx": {
+            "scale": 0.125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 8772,
+                "y": 1316
+            }
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/mapthinh.tmx#Background_0": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/mapthinh.tmx#Background_1": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/mapthinh.tmx#Grass_background_1": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/mapthinh.tmx#Grass_background_2": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/mapthinh.tmx#Salt": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/mapthinh.tmx#Tiles": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/mapthinh.tmx#brush": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/mapthinh.tmx#door": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/mapthinh.tmx#icons8-old-key-96": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/mapthinh.tmx#knight": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/mapthinh.tmx#river": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/mapthinh.tmx#rock": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/mapthinh.tmx#stair": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/mapthinh.tmx#statue": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/mapthinh.tmx#treasure": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/middle720.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/mountains848.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/sky.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/spike2.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/spike2128.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/spike21282.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/sprite_sheet1024.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/tiles1.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/tiles2.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/tilesetboss.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/windrise-background-4k.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1
+        },
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/windrise-background-4k1280.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1
+        },
         "Mossy - BackgroundDecoration1024.tsx": {
             "scaleInDock": 0.5,
             "scaleInEditor": 1
@@ -75,6 +227,10 @@
         },
         "SlimeOrange_00000256.tsx": {
             "scaleInDock": 0.03,
+            "scaleInEditor": 1
+        },
+        "abc.tsx": {
+            "scaleInDock": 0.33,
             "scaleInEditor": 1
         },
         "all-props.tsx": {
@@ -177,20 +333,73 @@
             "expandedObjectLayers": [
                 25
             ],
-            "scale": 0.75,
-            "selectedLayer": 17,
+            "scale": 0.125,
+            "selectedLayer": 20,
             "viewCenter": {
-                "x": 655.3333333333334,
-                "y": 4215.333333333333
+                "x": 6396,
+                "y": 4140
             }
         },
         "map4.tsx": {
-            "scaleInDock": 0.0625,
+            "scaleInDock": 0.33,
             "scaleInEditor": 1
         },
         "map5.tsx": {
-            "scaleInDock": 0.03125,
+            "scaleInDock": 0.33,
             "scaleInEditor": 1
+        },
+        "mapthinh.tmx": {
+            "scale": 0.06689453125,
+            "selectedLayer": 14,
+            "viewCenter": {
+                "x": 6241.1678832116795,
+                "y": 2324.5547445255474
+            }
+        },
+        "mapthinh.tmx#Background_0": {
+            "scaleInDock": 1
+        },
+        "mapthinh.tmx#Background_1": {
+            "scaleInDock": 1
+        },
+        "mapthinh.tmx#Grass_background_1": {
+            "scaleInDock": 1
+        },
+        "mapthinh.tmx#Grass_background_2": {
+            "scaleInDock": 1
+        },
+        "mapthinh.tmx#Salt": {
+            "scaleInDock": 1
+        },
+        "mapthinh.tmx#Tiles": {
+            "scaleInDock": 1
+        },
+        "mapthinh.tmx#brush": {
+            "scaleInDock": 1
+        },
+        "mapthinh.tmx#door": {
+            "scaleInDock": 1
+        },
+        "mapthinh.tmx#icons8-old-key-96": {
+            "scaleInDock": 1
+        },
+        "mapthinh.tmx#knight": {
+            "scaleInDock": 1
+        },
+        "mapthinh.tmx#river": {
+            "scaleInDock": 1
+        },
+        "mapthinh.tmx#rock": {
+            "scaleInDock": 1
+        },
+        "mapthinh.tmx#stair": {
+            "scaleInDock": 1
+        },
+        "mapthinh.tmx#statue": {
+            "scaleInDock": 1
+        },
+        "mapthinh.tmx#treasure": {
+            "scaleInDock": 1
         },
         "middle.tsx": {
             "scaleInDock": 0.25,
@@ -317,7 +526,7 @@
     },
     "last.exportedFilePath": "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources",
     "last.externalTilesetPath": "D:/BTL/BTL_Game/btl3_game/tileproject",
-    "last.imagePath": "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject",
+    "last.imagePath": "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources",
     "map.fixedSize": false,
     "map.height": 22,
     "map.lastUsedExportFilter": "All Files (*)",
@@ -325,23 +534,23 @@
     "map.width": 60,
     "openFiles": [
         "map4.tmx",
-        "map5.tsx"
+        "mapthinh.tmx"
     ],
     "project": "project2.tiled-project",
     "property.type": "bool",
     "recentFiles": [
-        "map5.tsx",
+        "mapthinh.tmx",
         "map4.tmx",
+        "abc.tsx",
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/mapthinh.tmx",
+        "D:/BTL/BTL_Game/btl3_game/cocos2d-x-4.0/cocos2d-x-4.0/BTL_Game_3/Resources/tileproject/map4.tmx",
+        "map5.tsx",
         "map.tmx",
         "back720.tsx",
         "map3.tsx",
         "map4.tsx",
         "0_ Background.tsx",
-        "untitled.tmx",
-        "all-props.tsx",
-        "mountains848.tsx",
-        "back848.tsx",
-        "tilesetboss.tsx"
+        "untitled.tmx"
     ],
     "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
     "tileset.lastUsedFormat": "tsx"

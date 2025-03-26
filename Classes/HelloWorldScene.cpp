@@ -21,7 +21,6 @@ static void problemLoading(const char *filename)
     printf("Depending on how you compiled you might have to add 'Resources/' in front of filenames in HelloWorldScene.cpp\n");
 }
 
-// on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
     if (!Layer::init())
@@ -31,6 +30,7 @@ bool HelloWorld::init()
 
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
     // Khởi tạo nhạc nền
     initMusic();
 
@@ -41,7 +41,7 @@ bool HelloWorld::init()
         problemLoading("'tile2/map4.tmx'");
         return false;
     }
-    tileMap->setPosition(Vec2(-200, 0));
+    tileMap->setPosition(Vec2(-6000, -1800));
     tileMap->setCameraMask((unsigned short)CameraFlag::DEFAULT);
     this->addChild(tileMap, 0);
 
@@ -52,6 +52,75 @@ bool HelloWorld::init()
         problemLoading("objectGroup");
         return false;
     }
+
+    auto rock1 = Sprite::create("Thinh/rock.png"); // Tạo object từ hình ảnh
+    if (rock1 == nullptr)
+    {
+        problemLoading("'Thinh/rock.png'");
+        return false;
+    }
+    rock1->setPosition(Vec2(10000, 2800)); // Đặt vị trí ban đầu
+
+    // Tạo PhysicsBody với kích thước dựa trên object
+    auto body = PhysicsBody::createBox(rock1->getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.3f));
+    body->setDynamic(true);       // Cho phép di chuyển
+    body->setGravityEnable(true); // Nếu không muốn bị ảnh hưởng bởi trọng lực
+    body->setCategoryBitmask(0x10);
+    body->setCollisionBitmask(0x01 | 0x02 | 0x04); // Cài đặt va chạm
+    body->setContactTestBitmask(0x01);
+
+    rock1->setPhysicsBody(body); // Gán PhysicsBody vào object
+
+    tileMap->addChild(rock1, 12345); // Thêm vào scene
+
+    auto rock2 = Sprite::create("Thinh/rock.png"); // Tạo object từ hình ảnh
+    if (rock2 == nullptr)
+    {
+        problemLoading("'Thinh/rock.png'");
+        return false;
+    }
+    rock2->setPosition(Vec2(11300, 2800)); // Đặt vị trí ban đầu
+
+    // Tạo PhysicsBody với kích thước dựa trên object
+    body = PhysicsBody::createBox(rock2->getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.3f));
+    body->setDynamic(true);       // Cho phép di chuyển
+    body->setGravityEnable(true); // Nếu không muốn bị ảnh hưởng bởi trọng lực
+    body->setCategoryBitmask(0x10);
+    body->setCollisionBitmask(0x01 | 0x02 | 0x04); // Cài đặt va chạm
+    body->setContactTestBitmask(0x01);
+
+    rock2->setPhysicsBody(body); // Gán PhysicsBody vào object
+
+    tileMap->addChild(rock2, 12345); // Thêm vào scene
+
+    auto key = Sprite::create("Thinh/key.png"); // Tạo object từ hình ảnh
+    if (key == nullptr)
+    {
+        problemLoading("'Thinh/key.png'");
+        return false;
+    }
+    key->setPosition(Vec2(6100, 2800)); // Đặt vị trí ban đầu
+
+    // Tạo PhysicsBody với kích thước dựa trên object
+    body = PhysicsBody::createBox(key->getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.3f));
+    body->setDynamic(true);       // Cho phép di chuyển
+    body->setGravityEnable(true); // Nếu không muốn bị ảnh hưởng bởi trọng lực
+    body->setCategoryBitmask(0x08);
+    body->setCollisionBitmask(0x01 | 0x02); // Cài đặt va chạm
+    body->setContactTestBitmask(0x01);
+
+    key->setPhysicsBody(body); // Gán PhysicsBody vào object
+
+    tileMap->addChild(key, 12345); // Thêm vào scene
+
+    chest = Chest::createSpecialChest(Vec2(11700, 1800));
+    if (chest == nullptr)
+    {
+        problemLoading("'Thinh/treasure.png'");
+        return false;
+    }
+    tileMap->addChild(chest, 12345);
+
     // --- Kết thúc phần MAP ---
 
     // --- Phần nhân vật từ code đầu tiên ---
@@ -59,39 +128,32 @@ bool HelloWorld::init()
     player = Player::createPlayer();
     player->setPosition(Vec2(200, 200));
     this->addChild(player);
-    
+
     // Tạo monster
     /*monster1 = FlyingMonster::spawnMonster(Vec2(400, 200));
     this->addChild(monster1);*/
 
     monster2 = GroundMonster::spawnMonster(Vec2(1000, 0));
-    tileMap->addChild(monster2,9999);//thay vì để nó làm con scene chính thì để làm con của tilemap.
-
+    tileMap->addChild(monster2, 9999); // thay vì để nó làm con scene chính thì để làm con của tilemap.
 
     chest = Chest::createChest(Vec2(300, 35));
-    tileMap->addChild(chest,12345);
-
-   
+    tileMap->addChild(chest, 12345);
 
     // Lưu ý: bạn có thể muốn trừ bớt kích thước màn hình nếu muốn camera dừng ở rìa map
 
-    
     // Tạo Follow action
     auto followAction = Follow::create(player, Rect::ZERO);
     this->runAction(followAction);
 
-
-
     initKeyboardListener();
     initGameSchedule(tileMap, player, visibleSize);
-    
 
     // Thiết lập sự kiện va chạm
     auto contactListener = EventListenerPhysicsContact::create();
     contactListener->onContactBegin = CC_CALLBACK_1(HelloWorld::OnPhysicsContact, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
 
-     this->scheduleUpdate();
+    this->scheduleUpdate();
 
     return true;
 }
@@ -99,11 +161,16 @@ bool HelloWorld::init()
 void HelloWorld::initMusic()
 {
     AudioEngine::stopAll();
-    //AudioEngine::play2d("haha/Sealed Vessel.mp3", true, 0.5f);
+    AudioEngine::play2d("haha/Sealed Vessel.mp3", true, 0.5f);
 }
 // Hàm khởi tạo object từ tile map (từ code thứ hai)
 TMXObjectGroup *HelloWorld::initObject(TMXTiledMap *tileMap)
 {
+    // Sau khi khởi tạo tileMap trong init()
+    // pushContainer = Node::create();
+    // pushContainer->setPosition(Vec2::ZERO); // Vị trí ban đầu
+    // this->addChild(pushContainer, 2);
+
     auto objectGroup = tileMap->getObjectGroup("Object Layer");
     if (objectGroup == nullptr)
     {
@@ -118,9 +185,9 @@ TMXObjectGroup *HelloWorld::initObject(TMXTiledMap *tileMap)
 
         std::string collidable = object["collidable"].asString();
         std::string poison = object["poison"].asString();
+        std::string spike = object["spike"].asString();
         std::string hit = object["hit"].asString();
         std::string fly = object["fly"].asString();
-        std::string open = object["open"].asString();
         std::string take = object["take"].asString();
         std::string dead = object["dead"].asString();
         std::string push = object["push"].asString();
@@ -130,6 +197,15 @@ TMXObjectGroup *HelloWorld::initObject(TMXTiledMap *tileMap)
         float y = object["y"].asFloat();
         float width = object["width"].asFloat();
         float height = object["height"].asFloat();
+
+        auto objectNode = Node::create();
+        objectNode->setPosition(Vec2(x + width / 2, y + height / 2));
+
+        auto physicsBody = PhysicsBody::createBox(Size(width, height));
+        physicsBody->setDynamic(false);
+
+        /*auto pushContainer = Node::create();
+        this->addChild(pushContainer);*/
 
         int categoryBitmask = 0x00;
         int collisionBitmask = 0x01;
@@ -142,22 +218,21 @@ TMXObjectGroup *HelloWorld::initObject(TMXTiledMap *tileMap)
             categoryBitmask |= 0x04;
         if (poison == "true")
             categoryBitmask |= 0x04;
+        if (spike == "true")
+            categoryBitmask |= 0x04;
         if (hit == "true")
             categoryBitmask |= 0x08;
-        if (open == "true")
-            categoryBitmask |= 0x08;
-        if (take == "true")
-            categoryBitmask |= 0x08;
-        if (push == "true")
+        /*if (push == "true") {
+            physicsBody->setDynamic(true);
             categoryBitmask |= 0x10;
+            pushContainer->addChild(objectNode);
+        }
+        else {
+            tileMap->addChild(objectNode);
+        }*/
         if (climb == "true")
             categoryBitmask |= 0x20;
 
-        auto objectNode = Node::create();
-        objectNode->setPosition(Vec2(x + width / 2, y + height / 2));
-
-        auto physicsBody = PhysicsBody::createBox(Size(width, height));
-        physicsBody->setDynamic(false);
         physicsBody->setCategoryBitmask(categoryBitmask);
         // physicsBody->setCollisionBitmask(collisionBitmask);
         physicsBody->setContactTestBitmask(0x01);
@@ -169,6 +244,14 @@ TMXObjectGroup *HelloWorld::initObject(TMXTiledMap *tileMap)
 
 bool HelloWorld::OnPhysicsContact(cocos2d::PhysicsContact &contact)
 {
+    // Lấy vị trí của player theo world space
+    Vec2 playerWorldPos = player->getPosition();
+
+    // Chuyển đổi sang hệ tọa độ của tileMap
+    Vec2 rockSpawnPos = tileMap->convertToNodeSpace(playerWorldPos);
+
+    CCLOG("positionX: % f, positionY : % f", rockSpawnPos.x, rockSpawnPos.y);
+
     auto bodyA = contact.getShapeA()->getBody();
     auto bodyB = contact.getShapeB()->getBody();
 
@@ -191,9 +274,33 @@ bool HelloWorld::OnPhysicsContact(cocos2d::PhysicsContact &contact)
                 player->takeDamage(((Monster *)bodyA->getNode())->damage);
             }
             // Đặt lịch cập nhật vị trí sau 0.5 giây
-            //this->scheduleOnce([this](float dt) {
+            // this->scheduleOnce([this](float dt) {
             //    player->setPosition(Vec2(player->getPositionX()-400.0f, player->getPositionY()));
             //    }, 0.5f, "update_player_position"); // reset vị trí
+        }
+        return true;
+    }
+
+    if ((categoryA == 0x04 && categoryB == 0x01) || (categoryA == 0x01 && categoryB == 0x04))
+    {
+        CCLOG("Player đã dính bẫy!");
+        // Xử lý logic khi va chạm, ví dụ trừ máu player hoặc xóa monster
+        if (player)
+        {
+            int dame = 1;
+            player->takeDamage(dame);
+        }
+        return true;
+    }
+
+    if ((categoryA == 0x04 && categoryB == 0x01) || (categoryA == 0x01 && categoryB == 0x04))
+    {
+        CCLOG("Player đã dính bẫy!");
+        // Xử lý logic khi va chạm, ví dụ trừ máu player hoặc xóa monster
+        if (player)
+        {
+            int dame = 1;
+            player->takeDamage(dame);
         }
         return true;
     }
@@ -233,6 +340,47 @@ bool HelloWorld::OnPhysicsContact(cocos2d::PhysicsContact &contact)
         return true;
     }
 
+    if ((categoryA == 0x01 && categoryB == 0x10) || (categoryB == 0x01 && categoryA == 0x10))
+    {
+        CCLOG("Player đập đá");
+        // Áp dụng impulse cho object (nếu object là dynamic)
+        float impulseStrength = 500.0f;
+        Vec2 impulse = Vec2(-impulseStrength, 0);
+        if (categoryB == 0x01)
+            bodyA->applyImpulse(impulse);
+        else if (categoryA == 0x01)
+            bodyB->applyImpulse(impulse);
+
+        player->onGroundContact();
+        this->isOnGround = true;
+
+        return true;
+    }
+
+    if ((categoryA == 0x08 && categoryB == 0x01) || (categoryA == 0x01 && categoryB == 0x08))
+    {
+        CCLOG("Player lấy chìa khóa");
+        player->setKey(true);
+        Node *rockNode = (categoryA == 0x08) ? bodyA->getNode() : bodyB->getNode();
+        if (rockNode)
+        {
+            rockNode->runAction(Sequence::create(FadeOut::create(0.1f), RemoveSelf::create(), nullptr));
+        }
+        return true;
+    }
+
+    if ((categoryA == 0x30 && categoryB == 0x01) || (categoryA == 0x01 && categoryB == 0x30))
+    { // Player va vào Chest
+        CCLOG("Player đã mở rương!");
+
+        if (chest && player->getKey())
+        {
+            chest->openChest("Thinh/chest.png"); // Mở chest (đổi ảnh, spawn vật phẩm bên trong, ...)
+            player->setHp(player->getHp() + 3);
+        }
+        return true;
+    }
+
     if ((categoryA == 0x102 && categoryB == 0x80) || (categoryA == 0x80 && categoryB == 0x102))
     { // Player va vào Chest
         CCLOG("Player đã đập thùng!");
@@ -244,7 +392,7 @@ bool HelloWorld::OnPhysicsContact(cocos2d::PhysicsContact &contact)
 
         if (chest)
         {
-            chest->openChest(); // Mở chest (đổi ảnh, spawn vật phẩm bên trong, ...)
+            chest->openChest("Object/Chest/chest_opened.png"); // Mở chest (đổi ảnh, spawn vật phẩm bên trong, ...)
             Vec2 tempPosition = chest->getPosition();
             // Nếu cần tạo chest mới sau 1.5 giây
             this->scheduleOnce([tempPosition, this](float dt)
@@ -295,12 +443,14 @@ bool HelloWorld::OnPhysicsContact(cocos2d::PhysicsContact &contact)
     return false;
 }
 
-
-void HelloWorld::initKeyboardListener() {
-    if (player->isDead) return;
+void HelloWorld::initKeyboardListener()
+{
+    if (player->isDead)
+        return;
     // Keyboard listener: cập nhật trạng thái phím
     auto keyboardListener = EventListenerKeyboard::create();
-    keyboardListener->onKeyPressed = [this](EventKeyboard::KeyCode keyCode, Event* event) {
+    keyboardListener->onKeyPressed = [this](EventKeyboard::KeyCode keyCode, Event *event)
+    {
         player->onKeyPressed(keyCode);
         switch (keyCode)
         {
@@ -317,9 +467,10 @@ void HelloWorld::initKeyboardListener() {
         default:
             break;
         }
-        };
+    };
 
-    keyboardListener->onKeyReleased = [this](EventKeyboard::KeyCode keyCode, Event* event) {
+    keyboardListener->onKeyReleased = [this](EventKeyboard::KeyCode keyCode, Event *event)
+    {
         player->onKeyReleased(keyCode);
         switch (keyCode)
         {
@@ -337,14 +488,15 @@ void HelloWorld::initKeyboardListener() {
         default:
             break;
         }
-        };
+    };
 
     _eventDispatcher->addEventListenerWithSceneGraphPriority(keyboardListener, this);
 }
 
-void HelloWorld::initGameSchedule(TMXTiledMap* tileMap, Player* player, const Size& visibleSize)
+void HelloWorld::initGameSchedule(TMXTiledMap *tileMap, Player *player, const Size &visibleSize)
 {
-    this->schedule([this, tileMap, player, visibleSize](float dt) {
+    this->schedule([this, tileMap, player, visibleSize](float dt)
+                   {
         if (!player->isDead) {
             if (isOnGround)
             {
@@ -384,6 +536,12 @@ void HelloWorld::initGameSchedule(TMXTiledMap* tileMap, Player* player, const Si
                     if (fabs(correctionX) > fabs(diffX)) correctionX = diffX;
                     player->setPositionX(currentPos.x + correctionX);
                 }
+                if (fabs(diffX) > threshold) {
+                    float correctionSpeed = 50.0f;
+                    float correctionX = correctionSpeed * dt * (diffX > 0 ? 1 : -1);
+                    if (fabs(correctionX) > fabs(diffX)) correctionX = diffX;
+                    player->setPositionX(currentPos.x + correctionX);
+                }
 
             }
             else
@@ -404,18 +562,20 @@ void HelloWorld::initGameSchedule(TMXTiledMap* tileMap, Player* player, const Si
                     tileMap->setPosition(tilePos);
                 }
             }
-        }
-        }, "update_game");
+        } }, "update_game");
+}
 }
 
 void HelloWorld::update(float delta)
 {
-    if (!player->isDead) {
-        CCLOG("checktran1");
+    if (!player->isDead)
+    {
         player->update(delta);
+        CCLOG("Mạng Player: %d", player->getHp());
     }
-    else {
-        CCLOG("checktran");
+    else
+    {
+        AudioEngine::stopAll();
         auto menuScene = MenuScene::create();
         Director::getInstance()->replaceScene(TransitionFade::create(1.0f, menuScene));
     }

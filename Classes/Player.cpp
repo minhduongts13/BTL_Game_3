@@ -1,4 +1,5 @@
 ﻿#include "Player.h"
+
 Player* Player::createPlayer() {
     Player* player = new Player();
     if (player && player->initWithFile("Knight/knight1-1.png")) {
@@ -17,7 +18,6 @@ Player* Player::createPlayer() {
     CC_SAFE_DELETE(player);
     return nullptr;
 }
-
 
 void Player::onKeyPressed(EventKeyboard::KeyCode keyCode) {
     keyStates[keyCode] = true; // Đánh dấu phím đang được nhấn

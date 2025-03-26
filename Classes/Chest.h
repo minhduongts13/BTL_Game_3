@@ -7,11 +7,14 @@ class Chest : public cocos2d::Sprite {
 public:
     static Chest* createChest(const cocos2d::Vec2& position);
 
-    void openChest(); // Hàm xử lý khi mở thùng
+    void openChest(std::string path); // Hàm xử lý khi mở thùng
+
+    static Chest* createSpecialChest(const cocos2d::Vec2& position);
 
 private:
     bool isOpened = false; // Trạng thái thùng
 };
+
 class Item : public cocos2d::Sprite
 {
 public:
