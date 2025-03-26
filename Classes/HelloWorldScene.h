@@ -6,6 +6,7 @@
 #include "Monster.h"
 #include "Chest.h"
 #include "Boss.h"
+#include "MenuScene.h"
 
 class HelloWorld : public cocos2d::Layer
 {
@@ -22,7 +23,7 @@ public:
     void initMusic();
     cocos2d::TMXObjectGroup *initObject(cocos2d::TMXTiledMap *tileMap);
     void initKeyboardListener();
-    void initGameSchedule(TMXTiledMap* tileMap, Sprite* player, const Size& visibleSize);
+    void initGameSchedule(TMXTiledMap* tileMap, Player* player, const Size& visibleSize);
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 
@@ -35,7 +36,7 @@ private:
     Player *player;
     Monster *monster1;
     Monster *monster2;
-    bool isOnGround;
+    //bool isOnGround;
     Chest *chest;
     Item *item;
     Boss *boss;

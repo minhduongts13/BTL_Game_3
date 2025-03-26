@@ -41,7 +41,7 @@ bool HelloWorld::init()
         problemLoading("'tile2/map4.tmx'");
         return false;
     }
-    tileMap->setPosition(Vec2(-200, -1800));
+    tileMap->setPosition(Vec2(-200, 0));
     tileMap->setCameraMask((unsigned short)CameraFlag::DEFAULT);
     this->addChild(tileMap, 0);
 
@@ -64,12 +64,12 @@ bool HelloWorld::init()
     /*monster1 = FlyingMonster::spawnMonster(Vec2(400, 200));
     this->addChild(monster1);*/
 
-    monster2 = GroundMonster::spawnMonster(Vec2(2000, 0));
+    monster2 = GroundMonster::spawnMonster(Vec2(1000, 0));
     tileMap->addChild(monster2,9999);//thay vì để nó làm con scene chính thì để làm con của tilemap.
 
 
-    /*chest = Chest::createChest(Vec2(300, 35));
-    this->addChild(chest);*/
+    chest = Chest::createChest(Vec2(300, 35));
+    tileMap->addChild(chest,12345);
 
    
 
@@ -91,7 +91,7 @@ bool HelloWorld::init()
     contactListener->onContactBegin = CC_CALLBACK_1(HelloWorld::OnPhysicsContact, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
 
-    // this->scheduleUpdate();
+     this->scheduleUpdate();
 
     return true;
 }
@@ -190,6 +190,10 @@ bool HelloWorld::OnPhysicsContact(cocos2d::PhysicsContact &contact)
             {
                 player->takeDamage(((Monster *)bodyA->getNode())->damage);
             }
+            // Đặt lịch cập nhật vị trí sau 0.5 giây
+            //this->scheduleOnce([this](float dt) {
+            //    player->setPosition(Vec2(player->getPositionX()-400.0f, player->getPositionY()));
+            //    }, 0.5f, "update_player_position"); // reset vị trí
         }
         return true;
     }
@@ -293,6 +297,7 @@ bool HelloWorld::OnPhysicsContact(cocos2d::PhysicsContact &contact)
 
 
 void HelloWorld::initKeyboardListener() {
+    if (player->isDead) return;
     // Keyboard listener: cập nhật trạng thái phím
     auto keyboardListener = EventListenerKeyboard::create();
     keyboardListener->onKeyPressed = [this](EventKeyboard::KeyCode keyCode, Event* event) {
@@ -337,88 +342,83 @@ void HelloWorld::initKeyboardListener() {
     _eventDispatcher->addEventListenerWithSceneGraphPriority(keyboardListener, this);
 }
 
-void HelloWorld::initGameSchedule(TMXTiledMap* tileMap, Sprite* player, const Size& visibleSize)
+void HelloWorld::initGameSchedule(TMXTiledMap* tileMap, Player* player, const Size& visibleSize)
 {
     this->schedule([this, tileMap, player, visibleSize](float dt) {
-        if (isOnGround)
-        {
-            CCLOG("Raycast: isOnGround = true");
-            // Nếu di chuyển trái/phải, chỉ cập nhật tileMap nếu không bị block
-            if (_isLeftPressed && !_isLeftBlocked)
+        if (!player->isDead) {
+            if (isOnGround)
             {
-                Vec2 tilePos = tileMap->getPosition();
-                float panSpeed = 200.0f;
-                tilePos.x += panSpeed * dt;
-                tileMap->setPosition(tilePos);
-            }
-            if (_isRightPressed && !_isRightBlocked)
-            {
-                Vec2 tilePos = tileMap->getPosition();
-                float panSpeed = 200.0f;
-                tilePos.x -= panSpeed * dt;
-                tileMap->setPosition(tilePos);
-            }
+                CCLOG("Raycast: isOnGround = true");
+                // Nếu di chuyển trái/phải, chỉ cập nhật tileMap nếu không bị block
+                if (_isLeftPressed && !_isLeftBlocked)
+                {
+                    Vec2 tilePos = tileMap->getPosition();
+                    float panSpeed = 200.0f;
+                    tilePos.x += panSpeed * dt;
+                    tileMap->setPosition(tilePos);
+                }
+                if (_isRightPressed && !_isRightBlocked)
+                {
+                    Vec2 tilePos = tileMap->getPosition();
+                    float panSpeed = 200.0f;
+                    tilePos.x -= panSpeed * dt;
+                    tileMap->setPosition(tilePos);
+                }
 
-            // Phần xử lý nhảy: nếu nhấn phím SPACE khi đang đứng
-            if (_isUpPressed)
+                // Phần xử lý nhảy: nếu nhấn phím SPACE khi đang đứng
+                if (_isUpPressed)
+                {
+                    isOnGround = false;
+                    CCLOG("Raycast: isOnGround = false");
+                }
+
+                // Điều chỉnh vị trí player về giữa màn hình theo chiều X
+                Vec2 desiredPosition = Vec2(visibleSize.width / 2, player->getPositionY());
+                Vec2 currentPos = player->getPosition();
+                float diffX = desiredPosition.x - currentPos.x;
+                float threshold = 5.0f;
+
+                if (fabs(diffX) > threshold) {
+                    float correctionSpeed = 50.0f;
+                    float correctionX = correctionSpeed * dt * (diffX > 0 ? 1 : -1);
+                    if (fabs(correctionX) > fabs(diffX)) correctionX = diffX;
+                    player->setPositionX(currentPos.x + correctionX);
+                }
+
+            }
+            else
             {
-                isOnGround = false;
                 CCLOG("Raycast: isOnGround = false");
-                /*Vec2 tilePos = tileMap->getPosition();
-                float panSpeed = 200.0f;
-                tilePos.y -= panSpeed * dt;
-                tileMap->setPosition(tilePos);*/
-                //player->getPhysicsBody()->setVelocity(Vec2(0, 200));
+                if (_isLeftPressed && !_isLeftBlocked)
+                {
+                    Vec2 tilePos = tileMap->getPosition();
+                    float panSpeed = 200.0f;
+                    tilePos.x += panSpeed * dt;
+                    tileMap->setPosition(tilePos);
+                }
+                if (_isRightPressed && !_isRightBlocked)
+                {
+                    Vec2 tilePos = tileMap->getPosition();
+                    float panSpeed = 200.0f;
+                    tilePos.x -= panSpeed * dt;
+                    tileMap->setPosition(tilePos);
+                }
             }
-            
-            // Điều chỉnh vị trí player về giữa màn hình theo chiều X
-            Vec2 desiredPosition = Vec2(visibleSize.width / 2, player->getPositionY());
-            Vec2 currentPos = player->getPosition();
-            float diffX = desiredPosition.x - currentPos.x;
-            float threshold = 5.0f;
-
-            if (fabs(diffX) > threshold) {
-                float correctionSpeed = 50.0f;
-                float correctionX = correctionSpeed * dt * (diffX > 0 ? 1 : -1);
-                if (fabs(correctionX) > fabs(diffX)) correctionX = diffX;
-                player->setPositionX(currentPos.x + correctionX);
-            }
-
-        }
-        else
-        {
-            CCLOG("Raycast: isOnGround = false");
-            if (_isLeftPressed && !_isLeftBlocked)
-            {
-                Vec2 tilePos = tileMap->getPosition();
-                float panSpeed = 200.0f;
-                tilePos.x += panSpeed * dt;
-                tileMap->setPosition(tilePos);
-            }
-            if (_isRightPressed && !_isRightBlocked)
-            {
-                Vec2 tilePos = tileMap->getPosition();
-                float panSpeed = 200.0f;
-                tilePos.x -= panSpeed * dt;
-                tileMap->setPosition(tilePos);
-            }
-            //if (player->getPositionY() < visibleSize.height*0.1) {
-            //    Vec2 tilePos = tileMap->getPosition();
-            //    float playerVelocityY = player->getPhysicsBody()->getVelocity().y; // Lấy tốc độ rơi hiện tại
-            //    float panSpeed = -playerVelocityY * dt; // Điều chỉnh theo tốc độ rơi
-            //    tilePos.y -= panSpeed;
-            //    tileMap->setPosition(tilePos);
-            //}
-           
-
         }
         }, "update_game");
 }
 
 void HelloWorld::update(float delta)
 {
-    if (!player->isDead)
+    if (!player->isDead) {
+        CCLOG("checktran1");
         player->update(delta);
+    }
+    else {
+        CCLOG("checktran");
+        auto menuScene = MenuScene::create();
+        Director::getInstance()->replaceScene(TransitionFade::create(1.0f, menuScene));
+    }
 }
 
 void HelloWorld::menuCloseCallback(Ref *pSender)
