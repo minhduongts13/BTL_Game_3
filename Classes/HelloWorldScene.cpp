@@ -97,13 +97,14 @@ bool HelloWorld::init()
             //boss = nullptr;
             //hole->stop();
             player->attack2();
-            boss->right->stop();
-            boss->left->stop();
+            //boss->right->stop();
+            //boss->left->stop();
         }        
         if (keyCode == EventKeyboard::KeyCode::KEY_E) {
             //CCLOG("Nhấn Space attack kiểu 2");
-            boss->right->start();
-            boss->left->start();
+       /*     boss->right->start();
+            boss->left->start();*/
+            boss->attack1();
         }
         if (keyCode == EventKeyboard::KeyCode::KEY_W) {
             //CCLOG("Nhấn Space attack kiểu 2");
@@ -111,7 +112,7 @@ bool HelloWorld::init()
             /*boss->right->play();
             boss->left->play();*/
             //boss->attack1();
-            boss->attack1();
+            boss->attack2();
         }
         HP++;
         Mana++;

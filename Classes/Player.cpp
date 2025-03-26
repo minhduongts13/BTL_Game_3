@@ -380,7 +380,7 @@ Fire* Fire::create() {
     if (fire && fire->initWithFile("Knight/fire6.png")) {
         fire->autorelease();
         auto body = PhysicsBody::createBox(fire->getContentSize(), PhysicsMaterial(0.0f, 0.0f, 0.0f));
-        body->setCollisionBitmask(7);
+        body->setCollisionBitmask(1);
         body->setContactTestBitmask(0);
         body->setGravityEnable(false);
         body->setDynamic(true);
@@ -428,7 +428,7 @@ void Fire::attack() {
     auto animate    = Animate::create(animation);
 
     // Chạy animation trong 2 giây
-    auto repeat     = Repeat::create(animate, 2 / (0.1f * attack2Ani.size())); // Tính số lần lặp trong 2s
+    auto repeat     = Repeat::create(animate, 1 / (0.1f * attack2Ani.size())); // Tính số lần lặp trong 2s
 
     // Sau 2s, đổi sang frame cuối cùng
     auto setLastFrame = CallFunc::create([this]() {

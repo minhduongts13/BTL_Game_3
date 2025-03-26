@@ -2,7 +2,8 @@
 
 Boss* Boss::create(Vec2 left, Vec2 right) {
     Boss* boss = new Boss();
-    if (boss && boss->initWithFile("Boss/att5.png")) {
+    if (boss) {
+        boss->initWithFile("Boss/att5.png");
         boss->autorelease();
         boss->setWormHole(left, right);
         auto body = PhysicsBody::createBox(boss->getContentSize(), PhysicsMaterial(1.0f, 0.0f, 0.0f));
@@ -47,6 +48,10 @@ void Boss::initFrame() {
 
 void Boss::attack1() {
     if (isattack || isdie) return;
+    //this->stopAllActions();
+    isTwo = false;
+    this->stopAllActions();
+    this->setRotation(0);
     bool isleft = rand() % 2; // 0 == phải , 1 == trái chọn random bên để render
     if (health <= 0) {
         //this->DieAnimation();
@@ -88,7 +93,7 @@ void Boss::attack1() {
         this->setSpriteFrame(lastFrame);
         this->setVisible(true);
 
-        auto moveAction = MoveTo::create(1.0f, this->target);
+        auto moveAction = MoveTo::create(0.7f, this->target);
         auto hideAction = CallFunc::create([this, isleft]() {
             this->setVisible(false);
             //this->right->start();
@@ -115,9 +120,61 @@ int Boss::getHealth() {
     return this->health;
 }
 
+//void Boss::update(float delta, Vec2 tar) {
+//    if (health > 0) {
+//        this->target = tar;
+//        if(isTwo)  this->setPosition(this->getPosition() + velocity);
+//    } else if (!isdie && !isattack) this->DieAnimation();
+//}
+
 void Boss::update(float delta, Vec2 tar) {
-    if (health > 0) this->target = tar;
-    else if (!isdie && !isattack) this->DieAnimation();
+    if (health > 0) {
+        this->target = tar;
+        if (isTwo) {
+            this->setPosition(this->getPosition() + velocity);
+
+            // Lấy kích thước màn hình
+            Size screenSize = cocos2d::Director::getInstance()->getVisibleSize();
+            float radius = this->getContentSize().width / 2;
+
+            // Kiểm tra va chạm với tường
+            if (this->getPositionX() - radius < 0 || this->getPositionX() + radius > screenSize.width) {
+                velocity.x *= -1;
+            }
+            if (this->getPositionY() - radius < 0) {
+                velocity.y *= -1;
+                this->setPositionY(radius);  // Giữ Boss trong màn hình
+            }
+            if (this->getPositionY() + radius > screenSize.height) {
+                velocity.y *= -1;
+            }
+        }
+    }
+    else if (!isdie && !isattack) {
+        this->DieAnimation();
+    }
+}
+
+void Boss::attack2() {
+    if (isdie || isattack) return;
+    isTwo = true;
+    isattack = true;
+    this->stopAllActions();
+    this->right->start();
+    this->left->start();
+    this->setVisible(true);
+    Vec2 newPos = (rand() % 2) ? rightHole : leftHole;
+    this->setPosition(newPos);
+    this->getPhysicsBody()->setDynamic(false);
+    this->setSpriteFrame(Sprite::create("Boss/boss2.png")->getSpriteFrame());
+
+    auto rotateAction = RotateBy::create(1.0f, 360); // Xoay 360 độ trong 1 giây
+    auto repeatRotate = RepeatForever::create(rotateAction);
+
+    this->stopAllActions();  // Dừng các action cũ để tránh lỗi
+    this->runAction(repeatRotate);  // Chạy xoay mãi mãi
+    isattack = false;
+    //isTwo = false;
 }
 
 void Boss::DieAnimation() {
@@ -126,11 +183,13 @@ void Boss::DieAnimation() {
         CCLOG("Không có frame animation nào cho die!");
         return;
     }
+    this->stopAllActions();
     this->setVisible(true);
-    this->setPosition(this->getPosition() + Vec2(100, 0));
+    this->setRotation(0);
+    this->setPosition(target + Vec2(100, 0));
 
     // Tạo animation từ danh sách frame
-    auto animation = Animation::createWithSpriteFrames(this->DieAni, 0.5f); // 0.1s mỗi frame
+    auto animation = Animation::createWithSpriteFrames(this->DieAni, 0.1f); // 0.1s mỗi frame
     auto animate = Animate::create(animation);
     this->setVisible(true);
     auto lastFrame = DieAni.back();
@@ -144,7 +203,7 @@ void Boss::DieAnimation() {
         this->getPhysicsBody()->setCollisionBitmask(0);
         this->getPhysicsBody()->setDynamic(false);
         this->removeComponent(this->getPhysicsBody());
-        //this->setVisible(false);
+        this->setVisible(false);
     });
 
     // Chạy animation và sau đó ẩn Boss

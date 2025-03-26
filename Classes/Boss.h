@@ -25,22 +25,27 @@ public:
 
     void DieAnimation();
     void update(float delta, Vec2 tar);
-    //void attack2();
+    
+    void attack2();
+    //void reflex();
     //void stopAttackType2();
 
     WormHole* left;
     WormHole* right;
+    //bool isType1 = true;
 
 private:
-    int health = 100;
-    int collisionCount = 0;
-    bool isattack = false;
-    bool isdie = false;
+    int health  = 1000;
+    int collisionCount  = 0;
+    bool isattack   = false;
+    bool isdie  = false;
+    bool isTwo  = false;
+
     Vec2 originalPosition; // Lưu vị trí ban đầu
     Vec2 leftHole;
     Vec2 rightHole;
     Vec2 target;
-    Vec2 direction;
+    Vec2 velocity = Vec2(10, 5);
     //Sprite* wormholeSprite;
     Vector<SpriteFrame*>AttackAni;
     Vector<SpriteFrame*>DieAni;
