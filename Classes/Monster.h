@@ -13,7 +13,7 @@ public:
     virtual void startPatrol(float duration) {};
     Vec2 patrolEnd = Vec2(0, 0);
     Vec2 patrolStart = Vec2(0, 0);
-    int damage = 20;
+    int damage = 0;
 protected:
     bool lastDirection = true;
     int health = 100;

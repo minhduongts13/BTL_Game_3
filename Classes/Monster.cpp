@@ -33,7 +33,9 @@ void FlyingMonster::takeDamage(int damage) {
     CCLOG("takeDamage");
     // Giảm máu
     health -= damage;
-
+    this->setColor(Color3B::RED);
+    auto revertColor = CallFunc::create([this]() { this->setColor(Color3B::WHITE); });
+    this->runAction(Sequence::create(DelayTime::create(0.1f), revertColor, nullptr));
     if (health > 0) {
         // Nếu còn máu, giữ nguyên hình ảnh và vị trí
         std::string picture = lastDirection ? "Monster/mos2-1.png" : "Monster/mos2-2.png";
@@ -179,7 +181,9 @@ void GroundMonster::startPatrol(float duration) {
 void GroundMonster::takeDamage(int damage) {
     // Giảm máu
     health -= damage;
-
+    this->setColor(Color3B::RED);
+    auto revertColor = CallFunc::create([this]() { this->setColor(Color3B::WHITE); });
+    this->runAction(Sequence::create(DelayTime::create(0.1f), revertColor, nullptr));
     if (health > 0) {
         return;  // Nếu còn máu, không làm gì thêm
     }

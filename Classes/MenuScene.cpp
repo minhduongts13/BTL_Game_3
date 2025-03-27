@@ -5,12 +5,12 @@
 
 USING_NS_CC;
 
-Scene* MenuScene::createScene()
+Scene *MenuScene::createScene()
 {
     return MenuScene::create();
 }
 
-static void problemLoading(const char* filename)
+static void problemLoading(const char *filename)
 {
     printf("Error while loading: %s\n", filename);
     printf("Depending on how you compiled you might have to add 'Resources/' in front of filenames in HelloWorldScene.cpp\n");
@@ -36,7 +36,7 @@ bool MenuScene::init()
         background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
         this->addChild(background, 0);
     }
-    AudioEngine::play2d("haha/Greenpath.mp3", true, 0.5f);
+    // AudioEngine::play2d("haha/Greenpath.mp3", true, 0.5f);
 
     auto titleImage = Sprite::create("haha/menu_name.png");
     if (titleImage == nullptr)
@@ -74,8 +74,8 @@ bool MenuScene::init()
         this->addChild(iconRight, 2);
     }
 
-    Vector<MenuItem*> menuItems;
-    auto createMenuItem = [&](const std::string& text, const Vec2& position, const ccMenuCallback& callback)
+    Vector<MenuItem *> menuItems;
+    auto createMenuItem = [&](const std::string &text, const Vec2 &position, const ccMenuCallback &callback)
     {
         auto item = MenuItemLabel::create(Label::createWithTTF(text, "fonts/Marker Felt.ttf", 24), callback);
         item->setPosition(position);
@@ -93,9 +93,9 @@ bool MenuScene::init()
     this->addChild(menu, 1);
 
     auto mouseListener = EventListenerMouse::create();
-    mouseListener->onMouseMove = [menuItems, iconLeft, iconRight](Event* event)
+    mouseListener->onMouseMove = [menuItems, iconLeft, iconRight](Event *event)
     {
-        auto mouseEvent = dynamic_cast<EventMouse*>(event);
+        auto mouseEvent = dynamic_cast<EventMouse *>(event);
         Vec2 mousePos = mouseEvent->getLocationInView();
 
         bool hovered = false;
@@ -129,13 +129,13 @@ bool MenuScene::init()
     return true;
 }
 
-void MenuScene::menuStartCallback(Ref* pSender)
+void MenuScene::menuStartCallback(Ref *pSender)
 {
     auto scene = HelloWorld::createScene();
     Director::getInstance()->replaceScene(TransitionFade::create(1.0f, scene));
 }
 
-void MenuScene::menuCloseCallback(Ref* pSender)
+void MenuScene::menuCloseCallback(Ref *pSender)
 {
     Director::getInstance()->end();
 }
